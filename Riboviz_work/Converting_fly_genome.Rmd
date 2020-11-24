@@ -1,0 +1,162 @@
+---
+title: "Coverting_fly_genome"
+author: "Isabel Birds"
+date: "5 November 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(Biostrings)
+library(seqinr)
+library(GenomicRanges) 
+library(GenomicFeatures)
+library(bedtoolsr)
+set.seed(123)
+```
+
+Raw files:
+
+* Dmel GFF, from ftp://ftp.flybase.net/releases/FB2020_04/dmel_r6.35/gff/dmel-all-r6.35.gff.gz 
+* Dmel genome fasta, from ftp://ftp.flybase.net/releases/FB2020_04/dmel_r6.35/fasta/dmel-all-chromosome-r6.35.fasta.gz 
+
+Need bedtools installed.
+devtools::install_github("PhanstielLab/bedtoolsr") 
+ options(bedtools.path = "/Users/cm13ijb/opt/anaconda3/bin")
+
+
+To Do:
+
+* Reformat dmel files to match yeast files - transcript focused. Previous script here https://github.com/riboviz/riboviz/blob/master/rmarkdown/script_for_transcript_annotation.Rmd - isn't generic.
+* Check how bicistronic transcripts are dealt with in GFF. 
+* Filter to one ORF per transcript at end (check - per gene?)
+* Double check works on gencode and non flybase GFF - other species. 
+
+
+Vague plan:
+
+* Load files 
+* Pull out CDS, UTRs from GFF
+* Add/extend UTRs in GFF
+* Use new GFF to get CDS and buffer sequence from fasta.
+* Concatenate CDS in fasta
+* Change fasta sequence IDs, and start/stops
+* Make new GFF based on this fasta
+* Output files
+
+Notes:
+
+* Dmel UTR length - based on current annotation - 5' UTR median 194nt, 3' UTR median 306nt. Some v v long outliers, but 250nt seems reasonable to use for buffer for now.
+* GFF format aim: Seq_ID  X SeqType start end . strand  . Name=Seq_ID
+
+naming convention:
+five_prime_UTR
+three_prime_UTR
+
+___
+
+Script requires - genome fasta file and GFF file. Length of flanking region - using approx median UTR length.
+
+```{r user_inputs}
+annotation_path <- "1_Raw_data/Dmel_genomes/dmel-all-r6.35.gff"
+genome_path <- "1_Raw_data/Dmel_genomes/dmel-all-chromosome-r6.35.fasta"
+flanking_length_nt <- 250
+```
+
+Using make TxDbFromGFF as better for quickly loading large GFFs.
+If also need exons: exons <- exonsBy(txdb,"tx")
+
+```{r load_files} 
+
+#import a GFF as a TxDb object.
+txdb <- makeTxDbFromGFF(annotation_path, format="gff3")
+
+#Extract the coding regions, UTRs, and exons by transcript
+cds <- cdsBy(txdb, "tx",use.names=TRUE)
+threeUTR <-  threeUTRsByTranscript(txdb,use.names=TRUE)
+fiveUTR <- fiveUTRsByTranscript(txdb,use.names=TRUE)
+
+#Read in genome
+#Will change this to work with bedtools - see notes
+genome <- readDNAStringSet(genome_path)
+
+```
+
+Make UTRs for CDS without them.
+
+```{r make_buffers}
+
+#5' UTR
+#Find CDS w/o 5' UTR
+no_fiveUTR_cds <- cds[!names(cds) %in% names(fiveUTR)]
+
+#Add 5'UTR
+add_5UTR <- function(no_fiveUTR_cds,flanking_length_nt){
+  #pull out start of cds
+  #using to ensure retains all metadata and maps back to transcript.
+  tmp_5UTR <- no_fiveUTR_cds[1]
+  #find range for 5UTR,update range of tmp5_UTR
+  ranges(tmp_5UTR) <- ranges(flank(tmp_5UTR,start = TRUE, both = FALSE, width = flanking_length_nt, use.names = TRUE))
+  return(tmp_5UTR)
+}
+
+no_fiveUTR_UTR <- endoapply(no_fiveUTR_cds,add_5UTR,flanking_length_nt)
+
+#3' UTR
+#Find CDS w/o 3' UTR
+no_threeUTR_cds <- cds[!names(cds) %in% names(threeUTR)]
+
+#Add 3'UTR
+add_3UTR <- function(no_threeUTR_cds,flanking_length_nt){
+  #pull out end of cds
+  #using to ensure retains all metadata and maps back to transcript.
+  tmp_3UTR <- no_threeUTR_cds[length(no_threeUTR_cds)]
+  #find range for 3UTR, update range of tmp3UTR
+  ranges(tmp_3UTR) <- ranges(flank(tmp_3UTR,start = FALSE, both = FALSE, width = flanking_length_nt, use.names = TRUE))
+  return(tmp_3UTR)
+}
+
+no_threeUTR_UTR <- endoapply(no_threeUTR_cds,add_3UTR,flanking_length_nt)
+
+```
+
+Extend UTRs of less than flanking length (250nt).
+
+```{r extend buffers}
+
+#Find 5' UTR shorter than flanking length
+short_5UTR <- fiveUTR[sum(width(fiveUTR)) < flanking_length_nt]
+
+#function to extend 5'UTR
+#ignores intron/exon boundaries currently
+resize_short_5UTR <- function(short_5UTR,flanking_length_nt){
+    #calculate extension needed
+    extra = flanking_length_nt - sum(width(short_5UTR))
+    #create extra range at start, combine with first range, update.
+    #adds to start of first range for +, adds to end of first range for - strand
+    ranges(short_5UTR[1]) <- ranges(range(flank(short_5UTR[1],start=TRUE,both=FALSE,width=extra),short_5UTR[1]))
+    #print(short_5UTR)
+}
+
+test <- endoapply(short_5UTR,resize_short_5UTR,flanking_length_nt)
+
+
+#Find 3' UTR shorter than flanking length
+short_3UTR <- threeUTR[sum(width(threeUTR)) < flanking_length_nt]
+```
+
+
+Bedtools 
+
+genome_test <- read.fasta(genome_path) 
+test <- bedtoolsr::bt.getfasta(fi=genome_test,bed = cds)
+
+
+
+
+
+
+
+
+
