@@ -83,7 +83,7 @@ genome <- readDNAStringSet(genome_path)
 
 ```
 
-Make UTRs for CDS without them.
+Describe UTRs for CDS without them.
 
 ```{r make_buffers}
 
@@ -122,8 +122,9 @@ no_threeUTR_UTR <- endoapply(no_threeUTR_cds,add_3UTR,flanking_length_nt)
 ```
 
 Extend UTRs of less than flanking length (250nt).
+This bit takes a while... should depend on transcriptome size.
 
-```{r extend buffers}
+```{r extend_buffers}
 
 #Find 5' UTR shorter than flanking length
 short_5UTR <- fiveUTR[sum(width(fiveUTR)) < flanking_length_nt]
@@ -136,16 +137,41 @@ resize_short_5UTR <- function(short_5UTR,flanking_length_nt){
     #create extra range at start, combine with first range, update.
     #adds to start of first range for +, adds to end of first range for - strand
     ranges(short_5UTR[1]) <- ranges(range(flank(short_5UTR[1],start=TRUE,both=FALSE,width=extra),short_5UTR[1]))
-    #print(short_5UTR)
+    return(short_5UTR)
 }
 
-test <- endoapply(short_5UTR,resize_short_5UTR,flanking_length_nt)
+extended_short_5UTR <- endoapply(short_5UTR,resize_short_5UTR,flanking_length_nt)
 
 
 #Find 3' UTR shorter than flanking length
 short_3UTR <- threeUTR[sum(width(threeUTR)) < flanking_length_nt]
+
+#function to extend 3'UTR
+#ignores intron/exon boundaries currently
+resize_short_3UTR <- function(short_3UTR,flanking_length_nt){
+    #calculate extension needed
+    extra = flanking_length_nt - sum(width(short_3UTR))
+    #create extra range at end, combine with last range, update.
+    #adds to end of last range for +, adds to start of last range for - strand
+    ranges(short_3UTR[length(short_3UTR)]) <- ranges(range(flank(short_3UTR[length(short_3UTR)],
+                                                                 start=FALSE,both=FALSE,width=extra),short_3UTR[length(short_3UTR)]))
+    return(short_3UTR)
+}
+
+extended_short_3UTR <- endoapply(short_3UTR,resize_short_3UTR,flanking_length_nt)
+
+#save outputs from this chunk because woof
+save("extended_short_5UTR",file="tmp_extended_short_5UTR")
+save("extended_short_3UTR",file="tmp_extended_short_3UTR")
+
 ```
 
+Combine UTR list, check 5', 3' and CDS are same length. 
+Pull UTR and CDS sequences using bedtools
+
+```{r get sequences}
+
+```
 
 Bedtools 
 
