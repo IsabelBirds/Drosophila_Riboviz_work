@@ -39,3 +39,4 @@ vignettes/*.pdf
 1_Raw_data/
 2_Processed_data/
 3_Papers/
+.Rproj.user

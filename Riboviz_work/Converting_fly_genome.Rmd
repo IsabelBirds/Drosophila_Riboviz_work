@@ -12,7 +12,9 @@ library(Biostrings)
 library(seqinr)
 library(GenomicRanges) 
 library(GenomicFeatures)
+library(rtracklayer)
 library(bedtoolsr)
+options(bedtools.path = "/Users/cm13ijb/opt/anaconda3/bin")
 set.seed(123)
 ```
 
@@ -22,7 +24,8 @@ Raw files:
 * Dmel genome fasta, from ftp://ftp.flybase.net/releases/FB2020_04/dmel_r6.35/fasta/dmel-all-chromosome-r6.35.fasta.gz 
 
 Need bedtools installed.
-devtools::install_github("PhanstielLab/bedtoolsr") 
+devtools::install_github("PhanstielLab/bedtoolsr")
+Have to give
  options(bedtools.path = "/Users/cm13ijb/opt/anaconda3/bin")
 
 
@@ -76,10 +79,6 @@ txdb <- makeTxDbFromGFF(annotation_path, format="gff3")
 cds <- cdsBy(txdb, "tx",use.names=TRUE)
 threeUTR <-  threeUTRsByTranscript(txdb,use.names=TRUE)
 fiveUTR <- fiveUTRsByTranscript(txdb,use.names=TRUE)
-
-#Read in genome
-#Will change this to work with bedtools - see notes
-genome <- readDNAStringSet(genome_path)
 
 ```
 
@@ -167,16 +166,56 @@ save("extended_short_3UTR",file="tmp_extended_short_3UTR")
 ```
 
 Combine UTR list, check 5', 3' and CDS are same length. 
-Pull UTR and CDS sequences using bedtools
+Combine all into one grangeslist.
 
-```{r get sequences}
+```{r get_sequences}
+
+#Remove extended UTR from original three UTR - prevent duplicates.
+threeUTR <- threeUTR[!names(threeUTR) %in% names(extended_short_3UTR)]
+#Combine into one three UTR list
+all_threeUTR <- c(threeUTR,extended_short_3UTR,no_threeUTR_UTR)
+
+#Remove extended UTR from original five UTR - prevent duplicates.
+fiveUTR <- fiveUTR[!names(fiveUTR) %in% names(extended_short_5UTR)]
+#Combine into one five UTR list
+all_fiveUTR <- c(fiveUTR,extended_short_5UTR,no_fiveUTR_UTR)
+
+#CHECK - should have a 3UTR and 5UTR for all CDS, and all flanking length or longer
+length(cds) == length(all_threeUTR)
+length(cds) == length(all_fiveUTR)
+all((sum(width(all_threeUTR)) >= flanking_length_nt))
+all((sum(width(all_fiveUTR)) >= flanking_length_nt))
 
 ```
 
-Bedtools 
+Pull UTR and CDS sequences using bedtools
 
-genome_test <- read.fasta(genome_path) 
-test <- bedtoolsr::bt.getfasta(fi=genome_test,bed = cds)
+```{r}
+ 
+test_3 <- unlist(all_threeUTR)
+test_3$type <- "3UTR"
+test_5 <- unlist(all_fiveUTR)
+test_5$type <- "5UTR"
+test_cds <- unlist(cds)
+test_cds$type <- "CDS"
+
+#Combine all granges - pc combines element wise
+#all_sequences <- pc(all_fiveUTR,cds,all_threeUTR)
+all_sequences <- c(test_5,test_cds,test_3)
+export.gff(all_sequences,"tmp_all.gff3")
+
+
+#Get sequences from fasta
+#test <- unlist(all_sequences)
+#test$type <- names(test)
+#export.gff3(test,"tmp_cds.gff" )
+
+#genome_test <- read.fasta(genome_path) 
+#Split - splices together cds
+test_seq <- bedtoolsr::bt.getfasta(fi=genome_path,bed = "tmp_all.gff3",nameplus =TRUE, split = FALSE)
+head(test_seq)
+```
+
 
 
 
