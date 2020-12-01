@@ -1,5 +1,5 @@
 ---
-title: "Coverting_fly_genome"
+title: "Converting_fly_genome"
 author: "Isabel Birds"
 date: "5 November 2020"
 output: html_document
