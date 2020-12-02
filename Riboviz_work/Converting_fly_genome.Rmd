@@ -168,7 +168,7 @@ save("extended_short_3UTR",file="tmp_extended_short_3UTR")
 Combine UTR list, check 5', 3' and CDS are same length. 
 Combine all into one grangeslist.
 
-```{r get_sequences}
+```{r combine_UTR}
 
 #Remove extended UTR from original three UTR - prevent duplicates.
 threeUTR <- threeUTR[!names(threeUTR) %in% names(extended_short_3UTR)]
@@ -186,41 +186,50 @@ length(cds) == length(all_fiveUTR)
 all((sum(width(all_threeUTR)) >= flanking_length_nt))
 all((sum(width(all_fiveUTR)) >= flanking_length_nt))
 
+#Clear up env
+rm(extended_short_3UTR,threeUTR,extended_short_5UTR,fiveUTR,no_fiveUTR_cds,no_fiveUTR_UTR,
+   no_threeUTR_cds,no_threeUTR_UTR,short_3UTR,short_5UTR)
 ```
 
-Pull UTR and CDS sequences using bedtools
+```{r get_sequences}
 
-```{r}
- 
-test_3 <- unlist(all_threeUTR)
-test_3$type <- "3UTR"
-test_5 <- unlist(all_fiveUTR)
-test_5$type <- "5UTR"
-test_cds <- unlist(cds)
-test_cds$type <- "CDS"
+#Get rid of characters that will break R - EOF within quoted string error
+names(cds) <- gsub("'","_",names(cds))
+names(all_fiveUTR) <- gsub("'","_",names(all_fiveUTR))
+names(all_threeUTR) <- gsub("'","_",names(all_threeUTR))
 
-#Combine all granges - pc combines element wise
-#all_sequences <- pc(all_fiveUTR,cds,all_threeUTR)
-all_sequences <- c(test_5,test_cds,test_3)
-export.gff(all_sequences,"tmp_all.gff3")
+#Save cds and UTR as tmp bed files
+export.bed(cds,"tmp_cds.bed")
+export.bed(all_fiveUTR,"tmp_5UTR.bed")
+export.bed(all_threeUTR,"tmp_3UTR.bed")
 
-
-#Get sequences from fasta
-#test <- unlist(all_sequences)
-#test$type <- names(test)
-#export.gff3(test,"tmp_cds.gff" )
-
-#genome_test <- read.fasta(genome_path) 
+#Use bedtools to get sequences
 #Split - splices together cds
-test_seq <- bedtoolsr::bt.getfasta(fi=genome_path,bed = "tmp_all.gff3",nameplus =TRUE, split = FALSE)
-head(test_seq)
+cds_seq <- bedtoolsr::bt.getfasta(fi=genome_path, bed = "tmp_cds.bed",name = TRUE, split = FALSE)
+three_seq <- bedtoolsr::bt.getfasta(fi=genome_path,bed = "tmp_3UTR.bed",name =TRUE, split = FALSE)
+five_seq <- bedtoolsr::bt.getfasta(fi=genome_path,bed = "tmp_5UTR.bed",name =TRUE, split = FALSE)
+
+#Check have expected no of sequences
+length(cds_seq$V1)/2 == length(cds)
+length(five_seq$V1)/2 == length(cds)
+length(three_seq$V1)/2 == length(cds)
+
 ```
 
+Make new GFF based on fastas, combine sequences.
+One sequence per CDS eg 
+>YAL068C
+ACCTATGAAAGATTTATGATTCGTTCAGAAACAAGAGCATCTCCATAGAGATAATGAGATTGTGTGAAAGATGAGATATA
+Three lines in GFF
+YAL068C	rtracklayer	UTR5	1	250	.	+	.	Name=YAL068C
+YAL068C	rtracklayer	CDS	251	613	.	+	.	Name=YAL068C
+YAL068C	rtracklayer	UTR3	614	863	.	+	.	Name=YAL068C
+
+```{r three_prime_UTR}
 
 
 
-
-
+```
 
 
 
