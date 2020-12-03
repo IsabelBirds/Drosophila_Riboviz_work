@@ -37,6 +37,6 @@ vignettes/*.pdf
 
 # Local folders - contain large data files
 1_Raw_data/
-2_Processed_data/
+2_Processed_data/Yeast_genomes/
 3_Papers/
 .Rproj.user

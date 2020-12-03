@@ -5,6 +5,7 @@ date: "5 November 2020"
 output: html_document
 ---
 
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
@@ -14,6 +15,7 @@ library(GenomicRanges)
 library(GenomicFeatures)
 library(rtracklayer)
 library(bedtoolsr)
+library(dplyr)
 options(bedtools.path = "/Users/cm13ijb/opt/anaconda3/bin")
 set.seed(123)
 ```
@@ -65,6 +67,7 @@ Script requires - genome fasta file and GFF file. Length of flanking region - us
 annotation_path <- "1_Raw_data/Dmel_genomes/dmel-all-r6.35.gff"
 genome_path <- "1_Raw_data/Dmel_genomes/dmel-all-chromosome-r6.35.fasta"
 flanking_length_nt <- 250
+output_path <- "2_Processed_data/Dmel_genomes/Dmel"
 ```
 
 Using make TxDbFromGFF as better for quickly loading large GFFs.
@@ -214,22 +217,123 @@ length(cds_seq$V1)/2 == length(cds)
 length(five_seq$V1)/2 == length(cds)
 length(three_seq$V1)/2 == length(cds)
 
+#Tidy IDs, and add quote marks back.
+cds_seq$V1 <-  gsub(">","",cds_seq$V1)
+cds_seq$V1 <-  gsub("_","'",cds_seq$V1)
+
+five_seq$V1 <-  gsub(">","",five_seq$V1)
+five_seq$V1 <-  gsub("_","'",five_seq$V1)
+
+three_seq$V1 <-  gsub(">","",three_seq$V1)
+three_seq$V1 <-  gsub("_","'",three_seq$V1)
+
 ```
 
-Make new GFF based on fastas, combine sequences.
-One sequence per CDS eg 
->YAL068C
-ACCTATGAAAGATTTATGATTCGTTCAGAAACAAGAGCATCTCCATAGAGATAATGAGATTGTGTGAAAGATGAGATATA
+Make new GFF based on fastas.
 Three lines in GFF
 YAL068C	rtracklayer	UTR5	1	250	.	+	.	Name=YAL068C
 YAL068C	rtracklayer	CDS	251	613	.	+	.	Name=YAL068C
 YAL068C	rtracklayer	UTR3	614	863	.	+	.	Name=YAL068C
 
 ```{r three_prime_UTR}
+#Fastas are not read in same order
+#Build dataframes for final GFF.
+#five UTR
+tmp_five_gff <- cbind.data.frame(five_seq$V1[seq(1, nrow(five_seq), 2)],
+                              five_seq$V1[seq(2, nrow(five_seq), 2)])
+colnames(tmp_five_gff) <- c("fasta_id","five_UTR")
+tmp_five_gff$type <- "five_prime_UTR"
+tmp_five_gff$start <- 1
+tmp_five_gff$width <- width(as.character(tmp_five_gff$five_UTR))
+tmp_five_gff$end <- width(as.character(tmp_five_gff$five_UTR))
 
+#CDS
+tmp_cds_gff <- cbind.data.frame(cds_seq$V1[seq(1, nrow(cds_seq), 2)],
+                              cds_seq$V1[seq(2, nrow(cds_seq), 2)])
+colnames(tmp_cds_gff) <- c("fasta_id","cds")
+tmp_cds_gff$type <- "CDS"
+tmp_cds_gff <- left_join(tmp_cds_gff,tmp_five_gff %>% select(fasta_id,end),
+                         by = "fasta_id")
+tmp_cds_gff$start <- tmp_cds_gff$end + 1
+tmp_cds_gff$width <- width(as.character(tmp_cds_gff$cds))
+tmp_cds_gff$end <- tmp_cds_gff$end + width(as.character(tmp_cds_gff$cds))  
+
+#three UTR
+tmp_three_gff <- cbind.data.frame(three_seq$V1[seq(1, nrow(three_seq), 2)],
+                              three_seq$V1[seq(2, nrow(three_seq), 2)])
+colnames(tmp_three_gff) <- c("fasta_id","three_UTR")
+tmp_three_gff$type <- "three_prime_UTR"
+tmp_three_gff <- left_join(tmp_three_gff,tmp_cds_gff %>% select(fasta_id,end),
+                         by = "fasta_id")
+tmp_three_gff$start <- tmp_three_gff$end + 1
+tmp_three_gff$width <- width(as.character(tmp_three_gff$three_UTR))
+tmp_three_gff$end <- tmp_three_gff$end + width(as.character(tmp_three_gff$three_UTR))
+
+
+#make gffs
+five_gff <- GRanges(seqnames = tmp_five_gff$fasta_id,
+                         ranges = IRanges(start = tmp_five_gff$start,
+                                          width = tmp_five_gff$width),
+                         strand = "+",
+                         type = tmp_five_gff$type,
+                         Name = tmp_five_gff$fasta_id)
+
+cds_gff <- GRanges(seqnames = tmp_cds_gff$fasta_id,
+                         ranges = IRanges(start = tmp_cds_gff$start,
+                                          width = tmp_cds_gff$width),
+                         strand = "+",
+                         type = tmp_cds_gff$type,
+                         Name = tmp_cds_gff$fasta_id)
+
+three_gff <- GRanges(seqnames = tmp_three_gff$fasta_id,
+                         ranges = IRanges(start = tmp_three_gff$start,
+                                          width = tmp_three_gff$width),
+                         strand = "+",
+                         type = tmp_three_gff$type,
+                         Name = tmp_three_gff$fasta_id)
+
+#Combine into final gff
+final_gff <- c(five_gff,cds_gff,three_gff)
+
+export.gff3(final_gff,con = paste(output_path,".gff3",sep=""))
+
+```
+
+ne sequence per CDS eg 
+>YAL068C
+ACCTATGAAAGATTTATGATTCGTTCAGAAACAAGAGCATCTCCATAGAGATAATGAGATTGTGTGAAAGATGAGATATA
+
+```{r make final fasta}
+
+final_fasta <- select(tmp_five_gff,c("fasta_id","five_UTR"))
+final_fasta <- left_join(final_fasta,tmp_cds_gff %>% select(fasta_id,cds),
+                         by = "fasta_id")
+final_fasta <- left_join(final_fasta,tmp_three_gff %>% select(fasta_id,three_UTR),
+                         by = "fasta_id")
+final_fasta$full_seq <- paste(final_fasta$five_UTR,final_fasta$cds,final_fasta$three_UTR) 
+
+#using function not mapply to ensure makes a new file
+
+for (i in (1:length(final_fasta$fasta_id))){
+  if (i == 1){
+    write.fasta(sequences = final_fasta$full_seq[i], 
+                names = final_fasta$fasta_id[i],
+                file.out = paste(output_path,".fasta",sep=""),
+                as.string = TRUE,
+                open = "w")
+  } else{
+    write.fasta(sequences = final_fasta$full_seq[i], 
+                names = final_fasta$fasta_id[i],
+                file.out = paste(output_path,".fasta",sep=""),
+                as.string = TRUE,
+                open = "a")
+  }
+}
 
 
 ```
+
+Then remove tmp files!
 
 
 
