@@ -42,3 +42,4 @@ vignettes/*.pdf
 .Rproj.user
 Riboviz_work/2_Processed_data/Yeast_genomes/yeast_CDS_w_250utrs.gff3
 Riboviz_work/2_Processed_data/Yeast_genomes/yeast_CDS_w_250utrs.fa
+Riboviz_work/2_Processed_data/Mouse_genomes/Mouse.fasta

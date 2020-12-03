@@ -86,6 +86,7 @@ fiveUTR <- fiveUTRsByTranscript(txdb,use.names=TRUE)
 ```
 
 Describe UTRs for CDS without them.
+This takes a while if no UTRs annotated.
 
 ```{r make_buffers}
 
@@ -299,7 +300,7 @@ export.gff3(final_gff,con = paste(output_path,".gff3",sep=""))
 
 ```
 
-ne sequence per CDS eg 
+One sequence per CDS eg 
 >YAL068C
 ACCTATGAAAGATTTATGATTCGTTCAGAAACAAGAGCATCTCCATAGAGATAATGAGATTGTGTGAAAGATGAGATATA
 
