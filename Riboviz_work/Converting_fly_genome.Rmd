@@ -311,7 +311,7 @@ final_fasta <- left_join(final_fasta,tmp_cds_gff %>% select(fasta_id,cds),
                          by = "fasta_id")
 final_fasta <- left_join(final_fasta,tmp_three_gff %>% select(fasta_id,three_UTR),
                          by = "fasta_id")
-final_fasta$full_seq <- paste(final_fasta$five_UTR,final_fasta$cds,final_fasta$three_UTR) 
+final_fasta$full_seq <- paste(final_fasta$five_UTR,final_fasta$cds,final_fasta$three_UTR,sep = "") 
 
 #using function not mapply to ensure makes a new file
 
