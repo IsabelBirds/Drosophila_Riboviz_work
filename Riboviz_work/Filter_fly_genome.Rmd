@@ -15,14 +15,20 @@ library(seqinr)
 
 One CDS per gene to start.
 
+```{r load}
+fly_fasta <- read.fasta("2_Processed_data/Dmel_genomes/Dmel.fasta",
+                        seqtype = "DNA",forceDNAtolower = FALSE)
+fly_gff <- readGFF("2_Processed_data/Dmel_genomes/Dmel.gff3")
+fly_base <- readGFF("1_Raw_data/Dmel_genomes/dmel-all-r6.35.gtf")
+```
+
 Open GTF, pull out all CDS IDs.
 Filter to one CDS per gene.
 
 ```{r ID_CDS} 
 
-fly_base <- readGFF("1_Raw_data/Dmel_genomes/dmel-all-r6.35.gtf")
-
-fly_base <- fly_base[fly_base$type == "CDS",] %>% select(c(type,gene_id,transcript_id,transcript_symbol)) %>% unique()
+fly_base <- fly_base[fly_base$transcript_symbol %in% fly_gff$seqid,] %>% 
+  select(c(gene_id,transcript_id,transcript_symbol)) %>% unique()
 
 fly_base <- fly_base[!duplicated(fly_base$gene_id), ]
 
@@ -30,13 +36,22 @@ fly_base <- fly_base[!duplicated(fly_base$gene_id), ]
 
 Filter fasta
 
-``` {r fasta}
-
-fly_fasta <- read.fasta("2_Processed_data/Dmel_genomes/Dmel.fasta",
-                        seqtype = "DNA",forceDNAtolower = FALSE)
+```{r fasta}
 
 filtered_fasta <- fly_fasta[names(fly_fasta) %in% fly_base$transcript_symbol]
 
 write.fasta(filtered_fasta,names=names(filtered_fasta),file.out ="2_Processed_data/Dmel_genomes/Dmel_filtered.fasta")
 
 ```
+
+Filter GFF
+
+```{r GFF}
+
+filtered_fly_gff <- fly_gff[fly_gff$seqid %in% fly_base$transcript_symbol,]
+
+export.gff3(filtered_fly_gff,con = "2_Processed_data/Dmel_genomes/Dmel_filtered.gff3")
+
+```
+
+
