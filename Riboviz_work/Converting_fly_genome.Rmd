@@ -5,7 +5,6 @@ date: "5 November 2020"
 output: html_document
 ---
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
@@ -30,7 +29,6 @@ devtools::install_github("PhanstielLab/bedtoolsr")
 Have to give
  options(bedtools.path = "/Users/cm13ijb/opt/anaconda3/bin")
 
-
 To Do:
 
 * Reformat dmel files to match yeast files - transcript focused. Previous script here https://github.com/riboviz/riboviz/blob/master/rmarkdown/script_for_transcript_annotation.Rmd - isn't generic.
@@ -38,13 +36,13 @@ To Do:
 * Filter to one ORF per transcript at end (check - per gene?)
 * Double check works on gencode and non flybase GFF - other species. 
 
-
-Vague plan:
+Plan:
 
 * Load files 
 * Pull out CDS, UTRs from GFF
 * Add/extend UTRs in GFF
 * Use new GFF to get CDS and buffer sequence from fasta.
+* Reverse complement any - sequences
 * Concatenate CDS in fasta
 * Change fasta sequence IDs, and start/stops
 * Make new GFF based on this fasta
@@ -195,6 +193,9 @@ rm(extended_short_3UTR,threeUTR,extended_short_5UTR,fiveUTR,no_fiveUTR_cds,no_fi
    no_threeUTR_cds,no_threeUTR_UTR,short_3UTR,short_5UTR)
 ```
 
+Split into - and + strands
+Get sequences
+
 ```{r get_sequences}
 
 #Get rid of characters that will break R - EOF within quoted string error
@@ -202,32 +203,89 @@ names(cds) <- gsub("'","_",names(cds))
 names(all_fiveUTR) <- gsub("'","_",names(all_fiveUTR))
 names(all_threeUTR) <- gsub("'","_",names(all_threeUTR))
 
+#Split into + and - strand
+neg_cds <- cds[any(strand(cds) == "-")]
+pos_cds <- cds[any(strand(cds) == "+")]
+neg_all_fiveUTR <- all_fiveUTR[any(strand(all_fiveUTR) == "-")]
+pos_all_fiveUTR <- all_fiveUTR[any(strand(all_fiveUTR) == "+")]
+neg_all_threeUTR <- all_threeUTR[any(strand(all_threeUTR) == "-")]
+pos_all_threeUTR <- all_threeUTR[any(strand(all_threeUTR) == "+")]
+
+#Check there aren't any * strand sequences
+length(neg_cds) + length(pos_cds) == length(cds)
+length(neg_all_fiveUTR ) + length(pos_all_fiveUTR) == length(all_fiveUTR)
+length(neg_cds) + length(pos_cds) == length(cds)
+
 #Save cds and UTR as tmp bed files
-export.bed(cds,"tmp_cds.bed")
-export.bed(all_fiveUTR,"tmp_5UTR.bed")
-export.bed(all_threeUTR,"tmp_3UTR.bed")
+export.bed(pos_cds,"tmp_pos_cds.bed")
+export.bed(pos_all_fiveUTR,"tmp_pos_5UTR.bed")
+export.bed(pos_all_threeUTR,"tmp_pos_3UTR.bed")
+export.bed(neg_cds,"tmp_neg_cds.bed")
+export.bed(neg_all_fiveUTR,"tmp_neg_5UTR.bed")
+export.bed(neg_all_threeUTR,"tmp_neg_3UTR.bed")
 
 #Use bedtools to get sequences
 #Split - splices together cds
-cds_seq <- bedtoolsr::bt.getfasta(fi=genome_path, bed = "tmp_cds.bed",name = TRUE, split = FALSE)
-three_seq <- bedtoolsr::bt.getfasta(fi=genome_path,bed = "tmp_3UTR.bed",name =TRUE, split = FALSE)
-five_seq <- bedtoolsr::bt.getfasta(fi=genome_path,bed = "tmp_5UTR.bed",name =TRUE, split = FALSE)
+pos_cds_seq <- bedtoolsr::bt.getfasta(fi=genome_path, bed = "tmp_pos_cds.bed",name = TRUE, split = FALSE)
+pos_three_seq <- bedtoolsr::bt.getfasta(fi=genome_path,bed = "tmp_pos_3UTR.bed",name =TRUE, split = FALSE)
+pos_five_seq <- bedtoolsr::bt.getfasta(fi=genome_path,bed = "tmp_pos_5UTR.bed",name =TRUE, split = FALSE)
+
+neg_cds_seq <- bedtoolsr::bt.getfasta(fi=genome_path, bed = "tmp_neg_cds.bed",name = TRUE, split = FALSE)
+neg_three_seq <- bedtoolsr::bt.getfasta(fi=genome_path,bed = "tmp_neg_3UTR.bed",name =TRUE, split = FALSE)
+neg_five_seq <- bedtoolsr::bt.getfasta(fi=genome_path,bed = "tmp_neg_5UTR.bed",name =TRUE, split = FALSE)
 
 #Check have expected no of sequences
-length(cds_seq$V1)/2 == length(cds)
-length(five_seq$V1)/2 == length(cds)
-length(three_seq$V1)/2 == length(cds)
+length(pos_cds_seq$V1)/2 + length(neg_cds_seq$V1)/2 == length(cds)
+length(pos_five_seq$V1)/2 + length(neg_five_seq$V1)/2 == length(cds)
+length(pos_three_seq$V1)/2 + length(neg_three_seq$V1)/2 == length(cds)
 
 #Tidy IDs, and add quote marks back.
-cds_seq$V1 <-  gsub(">","",cds_seq$V1)
-cds_seq$V1 <-  gsub("_","'",cds_seq$V1)
+pos_cds_seq$V1 <-  gsub(">","",pos_cds_seq$V1)
+pos_cds_seq$V1 <-  gsub("_","'",pos_cds_seq$V1)
 
-five_seq$V1 <-  gsub(">","",five_seq$V1)
-five_seq$V1 <-  gsub("_","'",five_seq$V1)
+pos_five_seq$V1 <-  gsub(">","",pos_five_seq$V1)
+pos_five_seq$V1 <-  gsub("_","'",pos_five_seq$V1)
 
-three_seq$V1 <-  gsub(">","",three_seq$V1)
-three_seq$V1 <-  gsub("_","'",three_seq$V1)
+pos_three_seq$V1 <-  gsub(">","",pos_three_seq$V1)
+pos_three_seq$V1 <-  gsub("_","'",pos_three_seq$V1)
 
+neg_cds_seq$V1 <-  gsub(">","",neg_cds_seq$V1)
+neg_cds_seq$V1 <-  gsub("_","'",neg_cds_seq$V1)
+
+neg_five_seq$V1 <-  gsub(">","",neg_five_seq$V1)
+neg_five_seq$V1 <-  gsub("_","'",neg_five_seq$V1)
+
+neg_three_seq$V1 <-  gsub(">","",neg_three_seq$V1)
+neg_three_seq$V1 <-  gsub("_","'",neg_three_seq$V1)
+
+rm(all_fiveUTR,all_threeUTR,cds)
+```
+
+Reverse complement any negative sequences
+Combine 
+
+```{r reverse}
+
+#Reverse comp any on - strand
+reverse_comp <- function(seqs){
+  sequences <- seq(2,length(seqs$V1),by=2)
+  for (i in sequences){
+    seqs[i,] <- as.character(reverseComplement(DNAString(seqs[i,])))
+  }
+  return(seqs)
+}
+
+neg_cds_seq <- reverse_comp(neg_cds_seq)
+neg_five_seq <- reverse_comp(neg_five_seq)
+neg_three_seq <- reverse_comp(neg_three_seq)
+
+#Rejoin - and + sequences
+
+cds_seq <- rbind(neg_cds_seq,pos_cds_seq)
+three_seq <- rbind(neg_three_seq,pos_three_seq)
+five_seq <- rbind(neg_five_seq,pos_five_seq)
+
+rm(neg_cds_seq,pos_cds_seq,neg_three_seq,pos_three_seq,neg_five_seq,pos_five_seq)
 ```
 
 Make new GFF based on fastas.
