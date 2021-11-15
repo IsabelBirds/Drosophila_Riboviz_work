@@ -1,0 +1,556 @@
+# Created by: RiboViz
+# Date: 2021-11-15 17:06:06.592165
+# Command-line tool: /Users/isabelbirds/Documents/Programs/Riboviz/riboviz/riboviz/tools/check_fasta_gff.py
+# File: /Users/isabelbirds/Documents/Programs/Riboviz/riboviz/riboviz/check_fasta_gff.py
+# Version: commit 144d95ab228a2da71b9a92912a24b26c37f4a64e date 2021-06-21 09:11:03+01:00
+# fasta_file: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/2_Processed_data/Dmel_genomes/Dmel_filtered.fasta
+# gff_file: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/2_Processed_data/Dmel_genomes/Dmel_filtered.gff3
+# start_codons: ['ATG']
+# NumSequences: 13965
+# NumFeatures: 41895
+# NumCDSFeatures: 13965
+# InternalStopCodon: 410
+# NoStartCodon: 53
+# NoStopCodon: 37
+# IncompleteFeature: 34
+# DuplicateFeatureIds: 0
+# DuplicateFeatureId: 0
+# MultipleCDS: 0
+# SequenceNotInFASTA: 0
+# NoIdName: 0
+# SequenceNotInGFF: 0
+Sequence	Feature	Issue	Data
+ush-RC	ush-RC	InternalStopCodon	
+haf-RI	haf-RI	InternalStopCodon	
+chinmo-RE	chinmo-RE	InternalStopCodon	
+oaf-RD	oaf-RD	InternalStopCodon	
+Rbp9-RJ	Rbp9-RJ	InternalStopCodon	
+CG33282-RB	CG33282-RB	InternalStopCodon	
+CG10019-RE	CG10019-RE	InternalStopCodon	
+CG34351-RD	CG34351-RD	InternalStopCodon	
+CG34126-RE	CG34126-RE	InternalStopCodon	
+CG4230-RC	CG4230-RC	InternalStopCodon	
+CG14020-RB	CG14020-RB	InternalStopCodon	
+smal-RD	smal-RD	InternalStopCodon	
+Liprin-alpha-RE	Liprin-alpha-RE	InternalStopCodon	
+lectin-28C-RB	lectin-28C-RB	IncompleteFeature	
+lectin-28C-RB	lectin-28C-RB	NoStopCodon	AGN
+lectin-28C-RB	lectin-28C-RB	InternalStopCodon	
+Scgalpha-RC	Scgalpha-RC	InternalStopCodon	
+Sema1a-RG	Sema1a-RG	InternalStopCodon	
+SoxN-RB	SoxN-RB	InternalStopCodon	
+Ggamma30A-RJ	Ggamma30A-RJ	InternalStopCodon	
+Eaat1-RF	Eaat1-RF	InternalStopCodon	
+bib-RB	bib-RB	InternalStopCodon	
+CG33301-RA	CG33301-RA	InternalStopCodon	
+Sps2-RA	Sps2-RA	InternalStopCodon	
+da-RD	da-RD	InternalStopCodon	
+CG31760-RC	CG31760-RC	InternalStopCodon	
+spict-RB	spict-RB	InternalStopCodon	
+nAChRalpha5-RI	nAChRalpha5-RI	InternalStopCodon	
+CG4892-RB	CG4892-RB	IncompleteFeature	
+CG4892-RB	CG4892-RB	NoStopCodon	AGN
+CG4892-RB	CG4892-RB	InternalStopCodon	
+BuGZ-RF	BuGZ-RF	InternalStopCodon	
+beat-IIIb-RD	beat-IIIb-RD	InternalStopCodon	
+MESR3-RB	MESR3-RB	InternalStopCodon	
+drl-RB	drl-RB	InternalStopCodon	
+tj-RC	tj-RC	InternalStopCodon	
+CG31688-RF	CG31688-RF	InternalStopCodon	
+tadr-RD	tadr-RD	InternalStopCodon	
+Gsc-RD	Gsc-RD	NoStartCodon	ATT
+CG4629-RE	CG4629-RE	NoStartCodon	CTG
+NLaz-RB	NLaz-RB	InternalStopCodon	
+robo2-RB	robo2-RB	InternalStopCodon	
+Gr22d-RB	Gr22d-RB	IncompleteFeature	
+Gr22d-RB	Gr22d-RB	NoStopCodon	GAN
+Gr22d-RB	Gr22d-RB	InternalStopCodon	
+Gr22b-RA	Gr22b-RA	InternalStopCodon	
+erm-RD	erm-RD	InternalStopCodon	
+Sec24CD-RC	Sec24CD-RC	InternalStopCodon	
+Cf2-RG	Cf2-RG	InternalStopCodon	
+Ncoa6-RF	Ncoa6-RF	InternalStopCodon	
+Cyp6a16-RB	Cyp6a16-RB	IncompleteFeature	
+Cyp6a16-RB	Cyp6a16-RB	NoStopCodon	ANN
+Cyp6a16-RB	Cyp6a16-RB	InternalStopCodon	
+retm-RB	retm-RB	InternalStopCodon	
+homer-RE	homer-RE	InternalStopCodon	
+CG13784-RF	CG13784-RF	InternalStopCodon	
+MED20-RB	MED20-RB	InternalStopCodon	
+CG5850-RG	CG5850-RG	InternalStopCodon	
+Fatp1-RF	Fatp1-RF	InternalStopCodon	
+CG18787-RB	CG18787-RB	InternalStopCodon	
+Patsas-RC	Patsas-RC	NoStartCodon	AAG
+DnaJ-H-RC	DnaJ-H-RC	InternalStopCodon	
+CG43778-RE	CG43778-RE	NoStartCodon	TTG
+CG43778-RE	CG43778-RE	InternalStopCodon	
+Trpgamma-RD	Trpgamma-RD	NoStartCodon	CTG
+BicD-RD	BicD-RD	InternalStopCodon	
+kel-RB	kel-RB	InternalStopCodon	
+Socs36E-RD	Socs36E-RD	InternalStopCodon	
+Jwa-RB	Jwa-RB	NoStartCodon	TTG
+Lim3-RG	Lim3-RG	InternalStopCodon	
+cyst-RC	cyst-RC	InternalStopCodon	
+CG43861-RC	CG43861-RC	InternalStopCodon	
+CG33511-RB	CG33511-RB	InternalStopCodon	
+CCHa2-R-RC	CCHa2-R-RC	InternalStopCodon	
+Adf1-RE	Adf1-RE	InternalStopCodon	
+Optix-RC	Optix-RC	InternalStopCodon	
+lig-RK	lig-RK	InternalStopCodon	
+Vang-RB	Vang-RB	InternalStopCodon	
+Jra-RC	Jra-RC	InternalStopCodon	
+RanBPM-RG	RanBPM-RG	InternalStopCodon	
+psq-RO	psq-RO	InternalStopCodon	
+stan-RF	stan-RF	InternalStopCodon	
+shn-RF	shn-RF	InternalStopCodon	
+E(Pc)-RE	E(Pc)-RE	InternalStopCodon	
+Drep1-RB	Drep1-RB	InternalStopCodon	
+CG33964-RA	CG33964-RA	IncompleteFeature	
+CG33964-RA	CG33964-RA	NoStopCodon	AAN
+CG33964-RA	CG33964-RA	InternalStopCodon	
+mIF3-RC	mIF3-RC	InternalStopCodon	
+CG33632-RA	CG33632-RA	InternalStopCodon	
+NAT1-RD	NAT1-RD	NoStartCodon	ATT
+Su(z)2-RC	Su(z)2-RC	InternalStopCodon	
+AttC-RB	AttC-RB	IncompleteFeature	
+AttC-RB	AttC-RB	NoStopCodon	ANN
+AttC-RB	AttC-RB	InternalStopCodon	
+ttv-RD	ttv-RD	InternalStopCodon	
+CG12869-RD	CG12869-RD	InternalStopCodon	
+Cyp6a20-RB	Cyp6a20-RB	IncompleteFeature	
+Cyp6a20-RB	Cyp6a20-RB	NoStopCodon	GAN
+Cyp6a20-RB	Cyp6a20-RB	InternalStopCodon	
+SRPK-RE	SRPK-RE	InternalStopCodon	
+Stacl-RJ	Stacl-RJ	InternalStopCodon	
+Atg9-RB	Atg9-RB	InternalStopCodon	
+Sema2b-RD	Sema2b-RD	InternalStopCodon	
+Mtap-RB	Mtap-RB	InternalStopCodon	
+qkr54B-RE	qkr54B-RE	InternalStopCodon	
+Klp54D-RE	Klp54D-RE	NoStartCodon	GTG
+CG5098-RC	CG5098-RC	InternalStopCodon	
+CG14499-RC	CG14499-RC	IncompleteFeature	
+CG14499-RC	CG14499-RC	NoStopCodon	GNN
+CG14499-RC	CG14499-RC	InternalStopCodon	
+Mctp-RD	Mctp-RD	InternalStopCodon	
+sano-RF	sano-RF	InternalStopCodon	
+5-HT1A-RC	5-HT1A-RC	InternalStopCodon	
+rib-RC	rib-RC	InternalStopCodon	
+par-1-RX	par-1-RX	InternalStopCodon	
+Rx-RB	Rx-RB	IncompleteFeature	
+Rx-RB	Rx-RB	NoStopCodon	AGN
+Rx-RB	Rx-RB	InternalStopCodon	
+CG10543-RG	CG10543-RG	InternalStopCodon	
+CG10321-RB	CG10321-RB	InternalStopCodon	
+CG42364-RB	CG42364-RB	NoStartCodon	ATA
+Fili-RE	Fili-RE	InternalStopCodon	
+CG33143-RG	CG33143-RG	InternalStopCodon	
+CG42566-RA	CG42566-RA	IncompleteFeature	
+CG42566-RA	CG42566-RA	NoStopCodon	ANN
+TM4SF-RC	TM4SF-RC	InternalStopCodon	
+alpha-Catr-RC	alpha-Catr-RC	InternalStopCodon	
+nvy-RD	nvy-RD	InternalStopCodon	
+Rpn8-RB	Rpn8-RB	InternalStopCodon	
+CG13579-RB	CG13579-RB	InternalStopCodon	
+NaCP60E-RM	NaCP60E-RM	InternalStopCodon	
+Dscam1-RBX	Dscam1-RBX	IncompleteFeature	
+Dscam1-RBX	Dscam1-RBX	NoStopCodon	AAN
+Dscam1-RBX	Dscam1-RBX	InternalStopCodon	
+CG46385-RE	CG46385-RE	InternalStopCodon	
+mtt-RG	mtt-RG	InternalStopCodon	
+Cyp6a14-RE	Cyp6a14-RE	IncompleteFeature	
+Cyp6a14-RE	Cyp6a14-RE	NoStopCodon	ANN
+Cyp6a14-RE	Cyp6a14-RE	InternalStopCodon	
+CG8642-RB	CG8642-RB	IncompleteFeature	
+CG8642-RB	CG8642-RB	NoStopCodon	ANN
+CG8642-RB	CG8642-RB	InternalStopCodon	
+CG8272-RB	CG8272-RB	InternalStopCodon	
+Mef2-RH	Mef2-RH	InternalStopCodon	
+Hr3-RI	Hr3-RI	NoStartCodon	ACG
+pre-lola-G-RC	pre-lola-G-RC	NoStartCodon	TTG
+CG9005-RE	CG9005-RE	InternalStopCodon	
+OSCP1-RB	OSCP1-RB	InternalStopCodon	
+Oda-RC	Oda-RC	IncompleteFeature	
+Oda-RC	Oda-RC	NoStopCodon	GNN
+Oda-RC	Oda-RC	InternalStopCodon	
+Ack-like-RE	Ack-like-RE	InternalStopCodon	
+CG17724-RE	CG17724-RE	InternalStopCodon	
+Dh31-R-RC	Dh31-R-RC	InternalStopCodon	
+CG6191-RC	CG6191-RC	InternalStopCodon	
+CG43428-RB	CG43428-RB	NoStartCodon	CTG
+Spred-RC	Spred-RC	InternalStopCodon	
+CG10209-RB	CG10209-RB	InternalStopCodon	
+Cyp6a9-RB	Cyp6a9-RB	NoStartCodon	ATA
+row-RC	row-RC	InternalStopCodon	
+Khc-73-RE	Khc-73-RE	InternalStopCodon	
+sli-RF	sli-RF	InternalStopCodon	
+DAT-RB	DAT-RB	InternalStopCodon	
+CG33981-RC	CG33981-RC	InternalStopCodon	
+CG5742-RC	CG5742-RC	InternalStopCodon	
+sbb-RJ	sbb-RJ	InternalStopCodon	
+CG15097-RE	CG15097-RE	InternalStopCodon	
+CG15099-RB	CG15099-RB	InternalStopCodon	
+5-HT1B-RE	5-HT1B-RE	InternalStopCodon	
+hrg-RD	hrg-RD	InternalStopCodon	
+CG10795-RB	CG10795-RB	InternalStopCodon	
+dnr1-RB	dnr1-RB	InternalStopCodon	
+Ppa-RB	Ppa-RB	InternalStopCodon	
+jbug-RN	jbug-RN	InternalStopCodon	
+CG42260-RE	CG42260-RE	InternalStopCodon	
+CG9897-RC	CG9897-RC	IncompleteFeature	
+CG9897-RC	CG9897-RC	NoStopCodon	ANN
+CG9897-RC	CG9897-RC	InternalStopCodon	
+side-V-RB	side-V-RB	InternalStopCodon	
+CG9812-RD	CG9812-RD	InternalStopCodon	
+bw-RA	bw-RA	IncompleteFeature	
+bw-RA	bw-RA	NoStopCodon	ANN
+bw-RA	bw-RA	InternalStopCodon	
+SerT-RC	SerT-RC	InternalStopCodon	
+Ir60e-RD	Ir60e-RD	InternalStopCodon	
+lov-RE	lov-RE	InternalStopCodon	
+Hipk-RD	Hipk-RD	InternalStopCodon	
+RabX6-RB	RabX6-RB	InternalStopCodon	
+Glut1-RP	Glut1-RP	InternalStopCodon	
+Bgb-RB	Bgb-RB	InternalStopCodon	
+CG13921-RG	CG13921-RG	InternalStopCodon	
+MsR2-RC	MsR2-RC	InternalStopCodon	
+MsR1-RB	MsR1-RB	InternalStopCodon	
+CG2162-RE	CG2162-RE	NoStartCodon	ATC
+ZnT63C-RF	ZnT63C-RF	InternalStopCodon	
+Eip63E-RN	Eip63E-RN	InternalStopCodon	
+Awh-RC	Awh-RC	InternalStopCodon	
+CG14977-RB	CG14977-RB	InternalStopCodon	
+Syx17-RB	Syx17-RB	InternalStopCodon	
+CG4603-RB	CG4603-RB	InternalStopCodon	
+sif-RJ	sif-RJ	InternalStopCodon	
+CG13287-RB	CG13287-RB	InternalStopCodon	
+CG33523-RF	CG33523-RF	InternalStopCodon	
+Ets65A-RE	Ets65A-RE	InternalStopCodon	
+axed-RF	axed-RF	InternalStopCodon	
+vvl-RF	vvl-RF	InternalStopCodon	
+CG13685-RD	CG13685-RD	InternalStopCodon	
+nmo-RI	nmo-RI	InternalStopCodon	
+CG6282-RD	CG6282-RD	InternalStopCodon	
+GluRIB-RB	GluRIB-RB	InternalStopCodon	
+CG16711-RC	CG16711-RC	InternalStopCodon	
+vsg-RE	vsg-RE	InternalStopCodon	
+bma-RH	bma-RH	InternalStopCodon	
+CG6938-RC	CG6938-RC	InternalStopCodon	
+mirr-RC	mirr-RC	InternalStopCodon	
+trn-RB	trn-RB	InternalStopCodon	
+caps-RE	caps-RE	InternalStopCodon	
+Nplp2-RC	Nplp2-RC	InternalStopCodon	
+fz-RC	fz-RC	InternalStopCodon	
+DCX-EMAP-RG	DCX-EMAP-RG	InternalStopCodon	
+MsrA-RG	MsrA-RG	InternalStopCodon	
+Hip14-RB	Hip14-RB	InternalStopCodon	
+mbf1-RE	mbf1-RE	InternalStopCodon	
+Dab-RF	Dab-RF	InternalStopCodon	
+CG9706-RC	CG9706-RC	InternalStopCodon	
+RhoBTB-RB	RhoBTB-RB	InternalStopCodon	
+Aef1-RD	Aef1-RD	InternalStopCodon	
+Atox1-RB	Atox1-RB	InternalStopCodon	
+fwd-RE	fwd-RE	InternalStopCodon	
+trh-RD	trh-RD	InternalStopCodon	
+PIG-C-RC	PIG-C-RC	InternalStopCodon	
+wit-RB	wit-RB	InternalStopCodon	
+dikar-RF	dikar-RF	InternalStopCodon	
+Dscam2-RP	Dscam2-RP	InternalStopCodon	
+CG13675-RD	CG13675-RD	InternalStopCodon	
+orb2-RJ	orb2-RJ	InternalStopCodon	
+Ir67a-RB	Ir67a-RB	InternalStopCodon	
+RasGAP1-RC	RasGAP1-RC	InternalStopCodon	
+klu-RB	klu-RB	InternalStopCodon	
+FoxK-RN	FoxK-RN	InternalStopCodon	
+CG6024-RG	CG6024-RG	InternalStopCodon	
+CG9760-RD	CG9760-RD	InternalStopCodon	
+Sms-RD	Sms-RD	InternalStopCodon	
+CrzR-RB	CrzR-RB	InternalStopCodon	
+bru3-RQ	bru3-RQ	InternalStopCodon	
+dysc-RG	dysc-RG	InternalStopCodon	
+Rgl-RE	Rgl-RE	InternalStopCodon	
+Sox21a-RB	Sox21a-RB	InternalStopCodon	
+Sox21b-RC	Sox21b-RC	InternalStopCodon	
+HGTX-RC	HGTX-RC	NoStartCodon	AAG
+brm-RE	brm-RE	InternalStopCodon	
+Crtc-RB	Crtc-RB	InternalStopCodon	
+AstC-R2-RF	AstC-R2-RF	InternalStopCodon	
+CG32204-RC	CG32204-RC	InternalStopCodon	
+Mkp3-RC	Mkp3-RC	InternalStopCodon	
+CG14082-RD	CG14082-RD	InternalStopCodon	
+fz2-RF	fz2-RF	InternalStopCodon	
+CG14088-RB	CG14088-RB	IncompleteFeature	
+CG14088-RB	CG14088-RB	NoStopCodon	ANN
+CG14088-RB	CG14088-RB	InternalStopCodon	
+CG32206-RE	CG32206-RE	InternalStopCodon	
+Ac78C-RE	Ac78C-RE	InternalStopCodon	
+Wnk-RM	Wnk-RM	NoStartCodon	ATT
+Ten-m-RE	Ten-m-RE	InternalStopCodon	
+jim-RF	jim-RF	InternalStopCodon	
+opa-RB	opa-RB	InternalStopCodon	
+CG14669-RA	CG14669-RA	InternalStopCodon	
+CG7963-RB	CG7963-RB	IncompleteFeature	
+CG7963-RB	CG7963-RB	NoStopCodon	ANN
+CG7963-RB	CG7963-RB	InternalStopCodon	
+5-HT2B-RE	5-HT2B-RE	InternalStopCodon	
+Glut4EF-RG	Glut4EF-RG	InternalStopCodon	
+nerfin-2-RB	nerfin-2-RB	InternalStopCodon	
+Syn-RD	Syn-RD	NoStartCodon	CTG
+Syn-RD	Syn-RD	InternalStopCodon	
+Tsp86D-RC	Tsp86D-RC	InternalStopCodon	
+svp-RF	svp-RF	InternalStopCodon	
+GstD5-RA	GstD5-RA	InternalStopCodon	
+CG34308-RC	CG34308-RC	IncompleteFeature	
+CG34308-RC	CG34308-RC	NoStopCodon	GAN
+CG34308-RC	CG34308-RC	InternalStopCodon	
+CG42404-RD	CG42404-RD	InternalStopCodon	
+ear-RB	ear-RB	InternalStopCodon	
+Akt1-RC	Akt1-RC	NoStartCodon	ACG
+gish-RL	gish-RL	InternalStopCodon	
+Dad-RD	Dad-RD	InternalStopCodon	
+lute-RD	lute-RD	InternalStopCodon	
+Hmx-RD	Hmx-RD	InternalStopCodon	
+cpo-RS	cpo-RS	NoStartCodon	CTG
+cpo-RS	cpo-RS	InternalStopCodon	
+sr-RD	sr-RD	InternalStopCodon	
+ChAT-RA	ChAT-RA	NoStartCodon	GTG
+CG31221-RC	CG31221-RC	InternalStopCodon	
+MtnD-RB	MtnD-RB	InternalStopCodon	
+bon-RC	bon-RC	InternalStopCodon	
+Nelf-A-RB	Nelf-A-RB	InternalStopCodon	
+pre-mod(mdg4)-T-RB	pre-mod(mdg4)-T-RB	NoStartCodon	GCC
+pre-mod(mdg4)-Z-RA	pre-mod(mdg4)-Z-RA	NoStartCodon	ACC
+pre-mod(mdg4)-Y-RA	pre-mod(mdg4)-Y-RA	NoStartCodon	CAG
+pre-mod(mdg4)-AD-RA	pre-mod(mdg4)-AD-RA	NoStartCodon	AAC
+pre-mod(mdg4)-AE-RA	pre-mod(mdg4)-AE-RA	NoStartCodon	TTT
+pre-mod(mdg4)-W-RA	pre-mod(mdg4)-W-RA	NoStartCodon	CAT
+pre-mod(mdg4)-X-RB	pre-mod(mdg4)-X-RB	NoStartCodon	TGC
+pre-mod(mdg4)-V-RA	pre-mod(mdg4)-V-RA	NoStartCodon	AGC
+pre-mod(mdg4)-U-RA	pre-mod(mdg4)-U-RA	NoStartCodon	GAC
+CG42335-RE	CG42335-RE	IncompleteFeature	
+CG42335-RE	CG42335-RE	NoStopCodon	ANN
+CG42335-RE	CG42335-RE	InternalStopCodon	
+Cby-RE	Cby-RE	IncompleteFeature	
+Cby-RE	Cby-RE	NoStopCodon	ANN
+Cby-RE	Cby-RE	InternalStopCodon	
+SKIP-RI	SKIP-RI	InternalStopCodon	
+CG31140-RH	CG31140-RH	InternalStopCodon	
+CG33096-RH	CG33096-RH	InternalStopCodon	
+dan-RB	dan-RB	InternalStopCodon	
+CG11857-RC	CG11857-RC	InternalStopCodon	
+CG11891-RI	CG11891-RI	IncompleteFeature	
+CG11891-RI	CG11891-RI	NoStartCodon	GAT
+CG11891-RI	CG11891-RI	NoStopCodon	ANN
+CG11891-RI	CG11891-RI	InternalStopCodon	
+CG5890-RE	CG5890-RE	InternalStopCodon	
+CG5447-RB	CG5447-RB	InternalStopCodon	
+Tl-RC	Tl-RC	InternalStopCodon	
+btz-RD	btz-RD	InternalStopCodon	
+CG34354-RF	CG34354-RF	InternalStopCodon	
+Or98b-RB	Or98b-RB	IncompleteFeature	
+Or98b-RB	Or98b-RB	NoStopCodon	AGN
+Or98b-RB	Or98b-RB	InternalStopCodon	
+CG33346-RB	CG33346-RB	InternalStopCodon	
+spg-RE	spg-RE	InternalStopCodon	
+CG11873-RB	CG11873-RB	InternalStopCodon	
+Rpn2-RB	Rpn2-RB	InternalStopCodon	
+Gnpnat-RF	Gnpnat-RF	InternalStopCodon	
+hdc-RC	hdc-RC	InternalStopCodon	
+zfh1-RE	zfh1-RE	InternalStopCodon	
+Ptx1-RE	Ptx1-RE	InternalStopCodon	
+spn-F-RB	spn-F-RB	InternalStopCodon	
+gammaCOP-RD	gammaCOP-RD	InternalStopCodon	
+kek6-RB	kek6-RB	InternalStopCodon	
+Pzl-RE	Pzl-RE	IncompleteFeature	
+Pzl-RE	Pzl-RE	NoStopCodon	GNN
+Syt14-RD	Syt14-RD	InternalStopCodon	
+CG34357-RE	CG34357-RE	InternalStopCodon	
+MTA1-like-RD	MTA1-like-RD	InternalStopCodon	
+CG9727-RB	CG9727-RB	InternalStopCodon	
+Scr-RF	Scr-RF	InternalStopCodon	
+Gld-RB	Gld-RB	InternalStopCodon	
+rn-RG	rn-RG	InternalStopCodon	
+MstProx-RA	MstProx-RA	InternalStopCodon	
+dsx-RE	dsx-RE	InternalStopCodon	
+grn-RC	grn-RC	InternalStopCodon	
+CG45263-RE	CG45263-RE	InternalStopCodon	
+Or85e-RB	Or85e-RB	NoStopCodon	ATT
+Or85e-RB	Or85e-RB	InternalStopCodon	
+CG34135-RD	CG34135-RD	InternalStopCodon	
+CG9467-RC	CG9467-RC	InternalStopCodon	
+Teh1-RB	Teh1-RB	InternalStopCodon	
+Fmr1-RG	Fmr1-RG	NoStartCodon	CTG
+Ugt35C1-RB	Ugt35C1-RB	IncompleteFeature	
+Ugt35C1-RB	Ugt35C1-RB	NoStopCodon	AGN
+Ugt35C1-RB	Ugt35C1-RB	InternalStopCodon	
+CG6923-RD	CG6923-RD	InternalStopCodon	
+l(3)neo38-RL	l(3)neo38-RL	InternalStopCodon	
+CG12224-RD	CG12224-RD	IncompleteFeature	
+CG12224-RD	CG12224-RD	NoStopCodon	GAN
+CG12224-RD	CG12224-RD	InternalStopCodon	
+Octbeta2R-RF	Octbeta2R-RF	InternalStopCodon	
+2mit-RB	2mit-RB	InternalStopCodon	
+CG12402-RC	CG12402-RC	InternalStopCodon	
+Dop1R1-RE	Dop1R1-RE	InternalStopCodon	
+Pde6-RC	Pde6-RC	InternalStopCodon	
+put-RB	put-RB	InternalStopCodon	
+Pak3-RD	Pak3-RD	InternalStopCodon	
+CG14907-RC	CG14907-RC	IncompleteFeature	
+CG14907-RC	CG14907-RC	NoStopCodon	AGN
+CG14907-RC	CG14907-RC	InternalStopCodon	
+Sur-8-RE	Sur-8-RE	InternalStopCodon	
+Ssdp-RD	Ssdp-RD	InternalStopCodon	
+PKD-RG	PKD-RG	InternalStopCodon	
+gl-RC	gl-RC	InternalStopCodon	
+CG31122-RD	CG31122-RD	InternalStopCodon	
+Octalpha2R-RB	Octalpha2R-RB	InternalStopCodon	
+Ppcs-RC	Ppcs-RC	InternalStopCodon	
+CG4562-RE	CG4562-RE	InternalStopCodon	
+CG46042-RC	CG46042-RC	IncompleteFeature	
+CG46042-RC	CG46042-RC	NoStopCodon	ANN
+CG46042-RC	CG46042-RC	InternalStopCodon	
+CG15923-RC	CG15923-RC	InternalStopCodon	
+Oamb-RD	Oamb-RD	InternalStopCodon	
+CG17267-RC	CG17267-RC	IncompleteFeature	
+CG17267-RC	CG17267-RC	NoStopCodon	AAN
+CG17267-RC	CG17267-RC	InternalStopCodon	
+CG31191-RD	CG31191-RD	InternalStopCodon	
+Mvl-RH	Mvl-RH	InternalStopCodon	
+slmb-RB	slmb-RB	InternalStopCodon	
+pre-mod(mdg4)-B-RB	pre-mod(mdg4)-B-RB	NoStartCodon	ACA
+pre-mod(mdg4)-G-RA	pre-mod(mdg4)-G-RA	NoStartCodon	CTG
+pre-mod(mdg4)-H-RA	pre-mod(mdg4)-H-RA	NoStartCodon	TTA
+pre-mod(mdg4)-I-RA	pre-mod(mdg4)-I-RA	NoStartCodon	TGC
+pre-mod(mdg4)-J-RA	pre-mod(mdg4)-J-RA	NoStartCodon	TCT
+pre-mod(mdg4)-K-RA	pre-mod(mdg4)-K-RA	NoStartCodon	CAG
+pre-mod(mdg4)-L-RA	pre-mod(mdg4)-L-RA	NoStartCodon	AAA
+pre-mod(mdg4)-P-RA	pre-mod(mdg4)-P-RA	NoStartCodon	AAA
+pre-mod(mdg4)-AB-RA	pre-mod(mdg4)-AB-RA	NoStartCodon	GTC
+pre-mod(mdg4)-C-RB	pre-mod(mdg4)-C-RB	NoStartCodon	GGC
+pre-mod(mdg4)-E-RA	pre-mod(mdg4)-E-RA	NoStartCodon	AAG
+pre-mod(mdg4)-AA-RA	pre-mod(mdg4)-AA-RA	NoStartCodon	CTC
+pre-mod(mdg4)-N-RA	pre-mod(mdg4)-N-RA	NoStartCodon	ACG
+pre-mod(mdg4)-O-RA	pre-mod(mdg4)-O-RA	NoStartCodon	GAC
+slou-RB	slou-RB	InternalStopCodon	
+CASK-RH	CASK-RH	InternalStopCodon	
+CG34377-RC	CG34377-RC	InternalStopCodon	
+PSR-RB	PSR-RB	InternalStopCodon	
+CG43092-RA	CG43092-RA	IncompleteFeature	
+CG43092-RA	CG43092-RA	NoStopCodon	ANN
+CG43092-RA	CG43092-RA	InternalStopCodon	
+cnc-RO	cnc-RO	InternalStopCodon	
+CG31145-RG	CG31145-RG	InternalStopCodon	
+sba-RH	sba-RH	InternalStopCodon	
+CG13601-RB	CG13601-RB	InternalStopCodon	
+CG13604-RE	CG13604-RE	InternalStopCodon	
+Spps-RB	Spps-RB	InternalStopCodon	
+nAChRalpha1-RB	nAChRalpha1-RB	InternalStopCodon	
+puf-RH	puf-RH	InternalStopCodon	
+Dhap-at-RC	Dhap-at-RC	InternalStopCodon	
+Tnks-RB	Tnks-RB	InternalStopCodon	
+Tsp96F-RB	Tsp96F-RB	InternalStopCodon	
+CCAP-R-RD	CCAP-R-RD	InternalStopCodon	
+Ets97D-RB	Ets97D-RB	InternalStopCodon	
+wdb-RH	wdb-RH	NoStartCodon	AAG
+fkh-RC	fkh-RC	InternalStopCodon	
+CG33203-RF	CG33203-RF	InternalStopCodon	
+yem-RB	yem-RB	InternalStopCodon	
+CG11951-RD	CG11951-RD	IncompleteFeature	
+CG11951-RD	CG11951-RD	NoStopCodon	ANN
+CG11951-RD	CG11951-RD	InternalStopCodon	
+CG7568-RE	CG7568-RE	InternalStopCodon	
+Dop1R2-RC	Dop1R2-RC	InternalStopCodon	
+TkR99D-RC	TkR99D-RC	InternalStopCodon	
+CG31013-RA	CG31013-RA	InternalStopCodon	
+CG12071-RE	CG12071-RE	InternalStopCodon	
+chp-RD	chp-RD	InternalStopCodon	
+CG2126-RB	CG2126-RB	InternalStopCodon	
+toy-RD	toy-RD	InternalStopCodon	
+y-RA	y-RA	NoStartCodon	CTG
+sdk-RG	sdk-RG	IncompleteFeature	
+sdk-RG	sdk-RG	NoStopCodon	ANN
+sdk-RG	sdk-RG	InternalStopCodon	
+CG32813-RO	CG32813-RO	InternalStopCodon	
+br-RP	br-RP	InternalStopCodon	
+Hr4-RI	Hr4-RI	InternalStopCodon	
+z-RC	z-RC	InternalStopCodon	
+fd3F-RD	fd3F-RD	InternalStopCodon	
+bi-RF	bi-RF	InternalStopCodon	
+ctp-RF	ctp-RF	InternalStopCodon	
+CG42594-RC	CG42594-RC	InternalStopCodon	
+SK-RS	SK-RS	InternalStopCodon	
+SPR-RD	SPR-RD	InternalStopCodon	
+dtn-RE	dtn-RE	InternalStopCodon	
+CG42240-RB	CG42240-RB	InternalStopCodon	
+CG9650-RK	CG9650-RK	InternalStopCodon	
+CBP-RC	CBP-RC	InternalStopCodon	
+Ir7g-RB	Ir7g-RB	InternalStopCodon	
+Ubr3-RB	Ubr3-RB	InternalStopCodon	
+mei-P26-RF	mei-P26-RF	InternalStopCodon	
+Sp1-RF	Sp1-RF	InternalStopCodon	
+CG1354-RF	CG1354-RF	InternalStopCodon	
+CG43740-RC	CG43740-RC	InternalStopCodon	
+ras-RF	ras-RF	InternalStopCodon	
+CDK2AP1-RB	CDK2AP1-RB	InternalStopCodon	
+Ptp10D-RF	Ptp10D-RF	InternalStopCodon	
+rudhira-RG	rudhira-RG	InternalStopCodon	
+CG1847-RC	CG1847-RC	InternalStopCodon	
+SelG-RA	SelG-RA	InternalStopCodon	
+Tpst-RF	Tpst-RF	InternalStopCodon	
+BthD-RA	BthD-RA	InternalStopCodon	
+Rab3-GEF-RH	Rab3-GEF-RH	InternalStopCodon	
+HDAC6-RG	HDAC6-RG	InternalStopCodon	
+Gmap-RD	Gmap-RD	InternalStopCodon	
+sd-RV	sd-RV	InternalStopCodon	
+CG16952-RH	CG16952-RH	InternalStopCodon	
+Ada3-RC	Ada3-RC	InternalStopCodon	
+Bx-RD	Bx-RD	InternalStopCodon	
+CG34401-RC	CG34401-RC	InternalStopCodon	
+CG43759-RB	CG43759-RB	InternalStopCodon	
+CG33253-RB	CG33253-RB	InternalStopCodon	
+car-RC	car-RC	InternalStopCodon	
+CG14234-RC	CG14234-RC	InternalStopCodon	
+ewg-RK	ewg-RK	NoStartCodon	CTG
+Lztr1-RD	Lztr1-RD	InternalStopCodon	
+CG3655-RC	CG3655-RC	InternalStopCodon	
+CG3638-RG	CG3638-RG	InternalStopCodon	
+Atf3-RB	Atf3-RB	InternalStopCodon	
+CG3078-RD	CG3078-RD	InternalStopCodon	
+HLH4C-RB	HLH4C-RB	InternalStopCodon	
+OtopLc-RF	OtopLc-RF	InternalStopCodon	
+Tsp5D-RC	Tsp5D-RC	InternalStopCodon	
+CG42340-RE	CG42340-RE	InternalStopCodon	
+Sxl-RX	Sxl-RX	InternalStopCodon	
+CG2278-RB	CG2278-RB	InternalStopCodon	
+oc-RH	oc-RH	InternalStopCodon	
+Zdhhc8-RE	Zdhhc8-RE	InternalStopCodon	
+Hk-RM	Hk-RM	InternalStopCodon	
+Ir10a-RC	Ir10a-RC	IncompleteFeature	
+Ir10a-RC	Ir10a-RC	NoStopCodon	AGN
+Ir10a-RC	Ir10a-RC	InternalStopCodon	
+cac-RU	cac-RU	InternalStopCodon	
+Pde9-RD	Pde9-RD	InternalStopCodon	
+hep-RH	hep-RH	InternalStopCodon	
+mew-RF	mew-RF	InternalStopCodon	
+para-RBF	para-RBF	InternalStopCodon	
+CG9784-RC	CG9784-RC	InternalStopCodon	
+CG45002-RE	CG45002-RE	InternalStopCodon	
+RunxA-RD	RunxA-RD	InternalStopCodon	
+FucTC-RB	FucTC-RB	IncompleteFeature	
+FucTC-RB	FucTC-RB	NoStopCodon	ANN
+FucTC-RB	FucTC-RB	InternalStopCodon	
+FDY-RE	FDY-RE	NoStopCodon	GGA
+CG40635-RB	CG40635-RB	NoStopCodon	GGC
+mt:CoI-RA	mt:CoI-RA	NoStartCodon	TCG
+mt:CoI-RA	mt:CoI-RA	InternalStopCodon	
+mt:ATPase8-RA	mt:ATPase8-RA	NoStartCodon	ATT
+mt:ATPase8-RA	mt:ATPase8-RA	InternalStopCodon	
+mt:ATPase6-RB	mt:ATPase6-RB	InternalStopCodon	
+mt:CoIII-RA	mt:CoIII-RA	InternalStopCodon	
+mt:ND3-RA	mt:ND3-RA	NoStartCodon	ATT
+mt:ND3-RA	mt:ND3-RA	InternalStopCodon	
+mt:ND6-RA	mt:ND6-RA	NoStartCodon	ATT
+mt:ND6-RA	mt:ND6-RA	InternalStopCodon	
+mt:Cyt-b-RB	mt:Cyt-b-RB	InternalStopCodon	
+mt:ND4L-RA	mt:ND4L-RA	InternalStopCodon	
+mt:ND1-RB	mt:ND1-RB	NoStartCodon	ATA
+mt:ND1-RB	mt:ND1-RB	InternalStopCodon	

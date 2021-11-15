@@ -36,10 +36,13 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 
-# Local folders - contain large data files
-1_Raw_data/
+# Large data files
+1_Raw_data/*.gz
+1_Raw_data/dmel-all-chromosome-r6.35.fasta
+1_Raw_data/dmel-all-r6.35.gff
+1_Raw_data/dmel-all-r6.35.gtf
 2_Processed_data/Yeast_genomes/
-3_Papers/
+2_Processed_data/tmp_files/
 .Rproj.user
 Riboviz_work/2_Processed_data/Yeast_genomes/yeast_CDS_w_250utrs.gff3
 Riboviz_work/2_Processed_data/Yeast_genomes/yeast_CDS_w_250utrs.fa

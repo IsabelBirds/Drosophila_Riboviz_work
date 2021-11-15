@@ -1,8 +1,14 @@
-# Stuff_to_share
- Collaborative bits n bobs.
+# Drosophila - Riboviz work:
 
+## 1 Raw data - not uploaded as large.
 
-## [Riboviz work:](Riboviz_work/)
+From Flybase:
+* Dmel GFF 6.35
+* Dmel genome fasta 6.35
+* tRNA fasta 6.35
+
+From Ribogalaxy:
+* rRNA fasta
 
 - Converting fly genome - script to make ORFeome GFF and fasta from flybase reference GFF and fasta. Outputs in [Dmel_genomes](Riboviz_work/2_Processed_data/Dmel_genomes/).
 - Filtering fly genome - script to filter ORFeome GFF and fasta to one CDS per gene for testing. Outputs in [Dmel_genomes](Riboviz_work/2_Processed_data/Dmel_genomes/).
