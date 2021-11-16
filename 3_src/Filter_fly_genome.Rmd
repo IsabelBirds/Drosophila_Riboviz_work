@@ -60,6 +60,15 @@ write.fasta(filtered_fasta,names=names(filtered_fasta),
 
 Filter GFF
 
+Some URL Encoding not saving correctly...
+
+Having to replace:
+%27 '
+%29 )
+%28 (
+%5b [
+%5d ]
+
 ```{r GFF}
 
 filtered_fly_gff <- fly_gff[fly_gff$seqid %in% fly_base$seqid,]

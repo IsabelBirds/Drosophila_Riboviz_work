@@ -37,13 +37,15 @@ vignettes/*.pdf
 *.knit.md
 
 # Large data files
-1_Raw_data/*.gz
-1_Raw_data/dmel-all-chromosome-r6.35.fasta
-1_Raw_data/dmel-all-r6.35.gff
-1_Raw_data/dmel-all-r6.35.gtf
-2_Processed_data/Yeast_genomes/
+1_Raw_data/Dmel/dmel-all-chromosome-r6.35.fasta
+1_Raw_data/Dmel/dmel-all-r6.35.gff
+1_Raw_data/Dmel/dmel-all-r6.35.gtf
+1_Raw_data/Sequencing/*fastq
+2_Processed_data/Dmel/*fastq
 2_Processed_data/tmp_files/
+4_Riboviz_test/*
+!4_Riboviz_test/*yaml
+!4_Riboviz_test/*txt
+!4_Riboviz_test/*tsv
 .Rproj.user
-Riboviz_work/2_Processed_data/Yeast_genomes/yeast_CDS_w_250utrs.gff3
-Riboviz_work/2_Processed_data/Yeast_genomes/yeast_CDS_w_250utrs.fa
-Riboviz_work/2_Processed_data/Mouse_genomes/Mouse.fasta
+

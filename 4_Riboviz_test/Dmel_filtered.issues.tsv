@@ -1,10 +1,10 @@
 # Created by: RiboViz
-# Date: 2021-11-15 17:06:06.592165
+# Date: 2021-11-16 14:23:49.108321
 # Command-line tool: /Users/isabelbirds/Documents/Programs/Riboviz/riboviz/riboviz/tools/check_fasta_gff.py
 # File: /Users/isabelbirds/Documents/Programs/Riboviz/riboviz/riboviz/check_fasta_gff.py
 # Version: commit 144d95ab228a2da71b9a92912a24b26c37f4a64e date 2021-06-21 09:11:03+01:00
-# fasta_file: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/2_Processed_data/Dmel_genomes/Dmel_filtered.fasta
-# gff_file: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/2_Processed_data/Dmel_genomes/Dmel_filtered.gff3
+# fasta_file: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/2_Processed_data/Dmel/Dmel_filtered.fasta
+# gff_file: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/2_Processed_data/Dmel/Dmel_filtered.gff3
 # start_codons: ['ATG']
 # NumSequences: 13965
 # NumFeatures: 41895
@@ -14,11 +14,11 @@
 # NoStopCodon: 37
 # IncompleteFeature: 34
 # DuplicateFeatureIds: 0
-# DuplicateFeatureId: 0
-# MultipleCDS: 0
-# SequenceNotInFASTA: 0
 # NoIdName: 0
 # SequenceNotInGFF: 0
+# SequenceNotInFASTA: 0
+# DuplicateFeatureId: 0
+# MultipleCDS: 0
 Sequence	Feature	Issue	Data
 ush-RC	ush-RC	InternalStopCodon	
 haf-RI	haf-RI	InternalStopCodon	

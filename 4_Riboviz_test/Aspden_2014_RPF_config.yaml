@@ -22,32 +22,32 @@ count_threshold: 64 # Remove genes with a read count below this threshold, when 
 dataset: A-Dm_2014 # Dataset name
 dedup_stats: FALSE # Output UMI deduplication statistics?
 dedup_umis: FALSE # Extract UMIs and deduplicate reads if TRUE
-dir_in: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/2_Processed_data/Dmel_genomes # Input directory
-dir_index: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/Index # Built indices directory
-dir_logs: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/logs # Log files directory
-dir_out: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/output # Output directory
-dir_tmp: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/tmp # Intermediate files directory
+dir_in: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/2_Processed_data/Dmel # Input directory
+dir_index: index # Built indices directory
+dir_logs: logs # Log files directory
+dir_out: output # Output directory
+dir_tmp: tmp # Intermediate files directory
 extract_umis: FALSE # Extract UMIs if TRUE
 feature: CDS #feature type
 features_file: NULL # Features to correlate with ORFs
-fq_files: # fastq files to be processed
- subsampledSmlPolysmFtpt: SRR1548656_100k_reads_subsampled.fastq
+fq_files: # fastq files to be processed, relative to dir_in
+ subsampledSmlPolysmFtpt: SRR1548656_subsample.fastq
  #SmlPolysmFtpt: SRR1548656.fastq.gz  # GSM1477470: small polysome footprint
 group_umis: FALSE # Summarise UMI groups before and after deduplication, if TRUE
 is_riboviz_gff: TRUE # Does the GFF file contain 3 elements per gene - UTR5, CDS, and UTR3
-is_test_run: FALSE # Is this a test run
 make_bedgraph: TRUE # Output bedgraph files, as TSV, in addition to h5?
 max_read_length: 50 # Maximum read length in H5 output
 min_read_length: 10 # Minimum read length in H5 output
 multiplex_fq_files: NULL # Multiplexed fastq files to be processed, relative to dir_in
-num_processes: 8 # Number of processes to parallelize over
-orf_fasta_file: Dmel_filtered.fasta # ORF file to align to
-orf_gff_file: Dmel_filtered_UTRreplace.gff3 # GFF2/GFF3 file for ORFs
+num_processes: 1 # Number of processes to parallelize over
+orf_fasta_file: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/2_Processed_data/Dmel/Dmel_filtered.fasta # ORF file to align to
+orf_gff_file: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/2_Processed_data/Dmel/Dmel_filtered.gff3 # GFF2/GFF3 file for ORFs
 orf_index_prefix: Dmel_filtered   # ORF index file prefix, relative to dir_index
+output_pdfs: TRUE # generate .pdfs for sample-related plots 
 primary_id: Name # Primary gene IDs to access the data (YAL001C, YAL003W, etc.)
 rpf: TRUE # Is the dataset an RPF or mRNA dataset?
-rrna_fasta_file: Drosophila_melanogaster_fly_rRNA_tRNA.fasta # rRNA file to avoid aligning to
-rrna_index_prefix: A-Dm_2014_rRNA # rRNA index file prefix, relative to dir_index
+rrna_fasta_file: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/1_Raw_data/Dmel/Drosophila_melanogaster_fly_rRNA_tRNA.fasta # rRNA file to avoid aligning to
+rrna_index_prefix: Drosophila_melanogaster_fly_rRNA_tRNA # rRNA index file prefix, relative to dir_index
 sample_sheet: NULL # Sample sheet, TSV file with, at least, SampleID and TagRead (barcode) columns
 secondary_id: NULL # Secondary gene IDs to access the data (COX1, EFB1, etc.)
 stop_in_cds: TRUE # Are stop codons part of the CDS annotations in GFF?

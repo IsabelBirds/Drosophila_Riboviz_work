@@ -29,29 +29,24 @@ devtools::install_github("PhanstielLab/bedtoolsr")
 Have to give
  options(bedtools.path = "/Users/isabelbirds/miniconda3/bin")
 
-To Do:
-
-* Reformat dmel files to match yeast files - transcript focused. Previous script here https://github.com/riboviz/riboviz/blob/master/rmarkdown/script_for_transcript_annotation.Rmd - isn't generic.
-* Filter to one ORF per gene at end - longest if possible.
-
 Notes:
 
 * Dmel UTR length - based on current annotation - 5' UTR median 194nt, 3' UTR median 306nt. Some very long outliers, but 250nt seems reasonable to use for buffer for now.
 * GFF format aim: Seq_ID  X SeqType start end . strand  . Name=Seq_ID
 
 naming convention:
-five_prime_UTR
-three_prime_UTR
+UTR5
+UTR3
 
 ___
 
 Script requires - genome fasta file and GFF file. Length of flanking region - using approx median UTR length.
 
 ```{r user_inputs}
-annotation_path <- "../1_Raw_data/dmel-all-r6.35.gff"
-genome_path <- "../1_Raw_data/dmel-all-chromosome-r6.35.fasta"
+annotation_path <- "../1_Raw_data/Dmel/dmel-all-r6.35.gff"
+genome_path <- "../1_Raw_data/Dmel/dmel-all-chromosome-r6.35.fasta"
 flanking_length_nt <- 250
-output_path <- "../2_Processed_data/Dmel_genomes/Dmel"
+output_path <- "../2_Processed_data/Dmel/Dmel"
 ```
 
 Using make TxDbFromGFF as better for quickly loading large GFFs.
@@ -234,7 +229,7 @@ tmp_five_gff <- cbind.data.frame(five_seq$V1[seq(1, nrow(five_seq), 2)],
                               five_seq$V1[seq(2, nrow(five_seq), 2)])
 colnames(tmp_five_gff) <- c("fasta_id","five_UTR")
 tmp_five_gff$fasta_id <- sub("\\::.*","",tmp_five_gff$fasta_id)
-tmp_five_gff$type <- "five_prime_UTR"
+tmp_five_gff$type <- "UTR5"
 tmp_five_gff$start <- 1
 tmp_five_gff$width <- width(as.character(tmp_five_gff$five_UTR))
 tmp_five_gff$end <- width(as.character(tmp_five_gff$five_UTR))
@@ -256,7 +251,7 @@ tmp_three_gff <- cbind.data.frame(three_seq$V1[seq(1, nrow(three_seq), 2)],
                               three_seq$V1[seq(2, nrow(three_seq), 2)])
 colnames(tmp_three_gff) <- c("fasta_id","three_UTR")
 tmp_three_gff$fasta_id <- sub("\\::.*","",tmp_three_gff$fasta_id)
-tmp_three_gff$type <- "three_prime_UTR"
+tmp_three_gff$type <- "UTR3"
 tmp_three_gff <- left_join(tmp_three_gff,tmp_cds_gff %>% select(fasta_id,end),
                          by = "fasta_id")
 tmp_three_gff$start <- tmp_three_gff$end + 1
@@ -287,12 +282,16 @@ three_gff <- GRanges(seqnames = tmp_three_gff$fasta_id,
 
 #Combine into final gff
 final_gff <- c(five_gff,cds_gff,three_gff)
+final_gff
 
-export(final_gff,con = paste(output_path,".gff3",sep=""))
+export.gff3(final_gff, con=file(paste(output_path,".gff3",sep=""),"w"))
+rtracklayer::export(final_gff,con = paste(output_path,".gff3",sep=""))
 
 ```
 
-Having to do replace 
+Some URL Encoding not saving correctly...
+
+Having to replace:
 %27 '
 %29 )
 %28 (
