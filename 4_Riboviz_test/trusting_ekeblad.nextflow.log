@@ -1,0 +1,329 @@
+Nov-17 12:04:05.419 [main] DEBUG nextflow.cli.Launcher - $> nextflow run /Users/isabelbirds/Documents/Programs/Riboviz/riboviz/prep_riboviz.nf -ansi-log false -params-file Aspden_2014_RPF_config.yaml
+Nov-17 12:04:05.611 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 21.04.1
+Nov-17 12:04:05.712 [main] INFO  nextflow.cli.CmdRun - Launching `/Users/isabelbirds/Documents/Programs/Riboviz/riboviz/prep_riboviz.nf` [trusting_ekeblad] - revision: 6c6670470d
+Nov-17 12:04:06.145 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; plugins-dir=/Users/isabelbirds/.nextflow/plugins
+Nov-17 12:04:06.149 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Nov-17 12:04:06.155 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins local root: .nextflow/plr/empty
+Nov-17 12:04:06.168 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Nov-17 12:04:06.170 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Nov-17 12:04:06.176 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Nov-17 12:04:06.196 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Nov-17 12:04:06.340 [main] DEBUG nextflow.Session - Session uuid: 0e6d9bef-07a0-40b0-bc8f-c2e4ad9f66e9
+Nov-17 12:04:06.340 [main] DEBUG nextflow.Session - Run name: trusting_ekeblad
+Nov-17 12:04:06.342 [main] DEBUG nextflow.Session - Executor pool size: 4
+Nov-17 12:04:06.457 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 21.04.1 build 5556
+  Created: 14-05-2021 15:20 UTC (16:20 BST)
+  System: Mac OS X 10.15.7
+  Runtime: Groovy 3.0.7 on OpenJDK 64-Bit Server VM 10.0.2+13
+  Encoding: UTF-8 (UTF-8)
+  Process: 19723@isabels-mbp.lan [192.168.86.21]
+  CPUs: 4 - Mem: 8 GB (50.7 MB) - Swap: 2 GB (1.1 GB)
+Nov-17 12:04:06.493 [main] DEBUG nextflow.Session - Work-dir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work [Mac OS X]
+Nov-17 12:04:06.493 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /Users/isabelbirds/Documents/Programs/Riboviz/riboviz/bin
+Nov-17 12:04:06.511 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Nov-17 12:04:06.623 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Nov-17 12:04:06.966 [main] DEBUG nextflow.Session - Session start invoked
+Nov-17 12:04:13.641 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Nov-17 12:04:13.651 [main] DEBUG nextflow.Session - Workflow process names [dsl1]: cutAdapters, countReads, hisat2ORF, collateTpms, buildIndicesrRNA, extractUmis, bamToH5, createVizParamsConfigFile, renameTpms, trim5pMismatches, demultiplex, outputBams, cutAdaptersMultiplex, hisat2rRNA, makeBedgraphs, generateStatsFigs, extractUmisMultiplex, samViewSort, buildIndicesORF, groupUmisPreDedup, dedupUmis, groupUmisPostDedup, staticHTML
+Nov-17 12:04:13.929 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 12:04:13.929 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:04:13.937 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Nov-17 12:04:13.945 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=4; memory=8 GB; capacity=4; pollInterval=100ms; dumpInterval=5m
+Nov-17 12:04:14.089 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 12:04:14.089 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:04:14.156 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 12:04:14.156 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:04:14.225 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 12:04:14.225 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:04:14.237 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 12:04:14.237 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:04:14.257 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 12:04:14.258 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:04:14.314 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 12:04:14.314 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:04:14.323 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 12:04:14.329 [Task submitter] INFO  nextflow.Session - [2e/f51f41] Submitted process > buildIndicesORF (Dmel_filtered)
+Nov-17 12:04:14.337 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 12:04:14.338 [Task submitter] INFO  nextflow.Session - [4b/4670ff] Submitted process > buildIndicesrRNA (Drosophila_melanogaster_fly_rRNA_tRNA)
+Nov-17 12:04:14.353 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 12:04:14.354 [Task submitter] INFO  nextflow.Session - [81/adae7c] Submitted process > cutAdapters (subsampledSmlPolysmFtpt)
+Nov-17 12:04:14.379 [main] DEBUG nextflow.processor.TaskProcessor - Creating *combiner* operator for each param(s) at index(es): [2]
+Nov-17 12:04:14.686 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 12:04:14.687 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:04:14.700 [main] DEBUG nextflow.processor.TaskProcessor - Creating *combiner* operator for each param(s) at index(es): [1]
+Nov-17 12:04:14.751 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 12:04:14.751 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:04:14.755 [main] DEBUG nextflow.processor.TaskProcessor - Creating *combiner* operator for each param(s) at index(es): [1]
+Nov-17 12:04:14.783 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 12:04:14.790 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:04:14.805 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 12:04:14.805 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:04:14.826 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 12:04:14.836 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:04:14.849 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 12:04:14.849 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:04:14.883 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 12:04:14.883 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:04:14.898 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 12:04:14.898 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:04:14.961 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 12:04:14.961 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:04:14.991 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 12:04:14.992 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:04:14.994 [main] DEBUG nextflow.processor.TaskProcessor - Creating *combiner* operator for each param(s) at index(es): [1]
+Nov-17 12:04:15.030 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 12:04:15.030 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:04:15.195 [main] DEBUG nextflow.processor.TaskProcessor - Creating *combiner* operator for each param(s) at index(es): [1, 2, 3, 4, 5, 6]
+Nov-17 12:04:15.250 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 12:04:15.250 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:04:15.263 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 12:04:15.263 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:04:15.268 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 12:04:15.269 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:04:15.274 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 12:04:15.275 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:04:15.281 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 12:04:15.281 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:04:15.296 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+Nov-17 12:04:15.296 [main] DEBUG nextflow.Session - Session await
+Nov-17 12:04:15.296 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 12:04:15.297 [Task submitter] INFO  nextflow.Session - [80/96fa5b] Submitted process > createVizParamsConfigFile
+Nov-17 12:04:15.417 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: createVizParamsConfigFile; status: COMPLETED; exit: 0; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/80/96fa5b2fdd1bbcc2ac10d4ef1ad251]
+Nov-17 12:04:16.019 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: buildIndicesrRNA (Drosophila_melanogaster_fly_rRNA_tRNA); status: COMPLETED; exit: 0; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/4b/4670ff760c4eed9c0e0d6ac66f0e6d]
+Nov-17 12:04:17.628 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: cutAdapters (subsampledSmlPolysmFtpt); status: COMPLETED; exit: 0; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/81/adae7c2a828df4a06b03257543da8a]
+Nov-17 12:04:17.706 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 12:04:17.706 [Task submitter] INFO  nextflow.Session - [68/881758] Submitted process > hisat2rRNA (subsampledSmlPolysmFtpt)
+Nov-17 12:04:19.970 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: hisat2rRNA (subsampledSmlPolysmFtpt); status: COMPLETED; exit: 0; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/68/88175806329a1459638e5a6e0ff311]
+Nov-17 12:05:20.039 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: buildIndicesORF (Dmel_filtered); status: COMPLETED; exit: 0; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/2e/f51f413e7f67728cca135906f7a491]
+Nov-17 12:05:20.075 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 12:05:20.075 [Task submitter] INFO  nextflow.Session - [9e/4ac9cd] Submitted process > hisat2ORF (subsampledSmlPolysmFtpt)
+Nov-17 12:05:21.669 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: hisat2ORF (subsampledSmlPolysmFtpt); status: COMPLETED; exit: 0; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/9e/4ac9cd71b16a10340cd584fb81b94c]
+Nov-17 12:05:21.704 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 12:05:21.705 [Task submitter] INFO  nextflow.Session - [e3/f3c4ae] Submitted process > trim5pMismatches (subsampledSmlPolysmFtpt)
+Nov-17 12:05:33.972 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 7; name: trim5pMismatches (subsampledSmlPolysmFtpt); status: COMPLETED; exit: 0; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/e3/f3c4ae5cc30aa99be5489b529abc47]
+Nov-17 12:05:33.999 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 12:05:33.999 [Task submitter] INFO  nextflow.Session - [6b/220c57] Submitted process > samViewSort (subsampledSmlPolysmFtpt)
+Nov-17 12:05:34.325 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 8; name: samViewSort (subsampledSmlPolysmFtpt); status: COMPLETED; exit: 0; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/6b/220c57ac6bfc3db7a84999c28d602f]
+Nov-17 12:05:34.345 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 12:05:34.345 [Task submitter] INFO  nextflow.Session - [31/e29db2] Submitted process > outputBams (subsampledSmlPolysmFtpt)
+Nov-17 12:05:34.438 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 9; name: outputBams (subsampledSmlPolysmFtpt); status: COMPLETED; exit: 0; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/31/e29db212b2cecdd1d85045d6f15309]
+Nov-17 12:05:34.445 [Task monitor] DEBUG n.util.BlockingThreadExecutorFactory - Thread pool name=FileTransfer; maxThreads=12; maxQueueSize=36; keepAlive=1m
+Nov-17 12:05:34.461 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 12:05:34.461 [Task submitter] INFO  nextflow.Session - [46/1e4165] Submitted process > makeBedgraphs (subsampledSmlPolysmFtpt)
+Nov-17 12:05:34.481 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 12:05:34.482 [Task submitter] INFO  nextflow.Session - [f5/2a0d21] Submitted process > bamToH5 (subsampledSmlPolysmFtpt)
+Nov-17 12:05:34.991 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 10; name: makeBedgraphs (subsampledSmlPolysmFtpt); status: COMPLETED; exit: 0; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/46/1e4165f147e349e185b5ce17a2c114]
+Nov-17 12:09:14.085 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 11; name: bamToH5 (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/f5/2a0d21c3aed9bb3963852fe79ec2ae]
+Nov-17 12:14:14.109 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 11; name: bamToH5 (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/f5/2a0d21c3aed9bb3963852fe79ec2ae]
+Nov-17 12:19:14.146 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 11; name: bamToH5 (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/f5/2a0d21c3aed9bb3963852fe79ec2ae]
+Nov-17 12:24:14.162 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 11; name: bamToH5 (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/f5/2a0d21c3aed9bb3963852fe79ec2ae]
+Nov-17 12:29:14.166 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 11; name: bamToH5 (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/f5/2a0d21c3aed9bb3963852fe79ec2ae]
+Nov-17 12:34:14.254 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 11; name: bamToH5 (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/f5/2a0d21c3aed9bb3963852fe79ec2ae]
+Nov-17 12:39:14.323 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 11; name: bamToH5 (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/f5/2a0d21c3aed9bb3963852fe79ec2ae]
+Nov-17 12:44:14.428 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 11; name: bamToH5 (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/f5/2a0d21c3aed9bb3963852fe79ec2ae]
+Nov-17 12:49:14.447 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 11; name: bamToH5 (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/f5/2a0d21c3aed9bb3963852fe79ec2ae]
+Nov-17 12:52:42.830 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 11; name: bamToH5 (subsampledSmlPolysmFtpt); status: COMPLETED; exit: 0; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/f5/2a0d21c3aed9bb3963852fe79ec2ae]
+Nov-17 12:52:43.124 [Actor Thread 20] DEBUG nextflow.util.CacheHelper - Unable to get file attributes file: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/Missing_t_rna_file -- Cause: java.nio.file.NoSuchFileException: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/Missing_t_rna_file
+Nov-17 12:52:43.125 [Actor Thread 20] DEBUG nextflow.util.CacheHelper - Unable to get file attributes file: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/Missing_codon_positions_file -- Cause: java.nio.file.NoSuchFileException: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/Missing_codon_positions_file
+Nov-17 12:52:43.126 [Actor Thread 20] DEBUG nextflow.util.CacheHelper - Unable to get file attributes file: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/Missing_features_file -- Cause: java.nio.file.NoSuchFileException: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/Missing_features_file
+Nov-17 12:52:43.145 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 12:52:43.145 [Task submitter] INFO  nextflow.Session - [00/01078a] Submitted process > generateStatsFigs (subsampledSmlPolysmFtpt)
+Nov-17 12:54:14.494 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 12; name: generateStatsFigs (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2]
+Nov-17 12:59:14.555 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 12; name: generateStatsFigs (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2]
+Nov-17 13:04:14.608 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 12; name: generateStatsFigs (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2]
+Nov-17 13:09:14.629 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 12; name: generateStatsFigs (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2]
+Nov-17 13:14:14.674 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 12; name: generateStatsFigs (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2]
+Nov-17 13:19:14.728 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 12; name: generateStatsFigs (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2]
+Nov-17 13:24:14.755 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 12; name: generateStatsFigs (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2]
+Nov-17 13:29:14.830 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 12; name: generateStatsFigs (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2]
+Nov-17 13:34:14.907 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 12; name: generateStatsFigs (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2]
+Nov-17 13:39:15.000 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 12; name: generateStatsFigs (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2]
+Nov-17 13:44:15.039 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 12; name: generateStatsFigs (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2]
+Nov-17 13:49:15.059 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 12; name: generateStatsFigs (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2]
+Nov-17 13:54:15.110 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 12; name: generateStatsFigs (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2]
+Nov-17 13:59:15.159 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 12; name: generateStatsFigs (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2]
+Nov-17 14:04:15.263 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 12; name: generateStatsFigs (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2]
+Nov-17 14:09:15.292 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 12; name: generateStatsFigs (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2]
+Nov-17 14:14:15.392 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 12; name: generateStatsFigs (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2]
+Nov-17 14:19:15.395 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 12; name: generateStatsFigs (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2]
+Nov-17 14:24:15.499 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 12; name: generateStatsFigs (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2]
+Nov-17 14:29:15.519 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 12; name: generateStatsFigs (subsampledSmlPolysmFtpt); status: RUNNING; exit: -; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2]
+Nov-17 14:30:08.306 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 12; name: generateStatsFigs (subsampledSmlPolysmFtpt); status: COMPLETED; exit: 0; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2]
+Nov-17 14:30:08.332 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process `generateStatsFigs (subsampledSmlPolysmFtpt)` is unable to find [UnixPath]: `/Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2/codon_ribodens.pdf` (pattern: `codon_ribodens.pdf`)
+Nov-17 14:30:08.340 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process `generateStatsFigs (subsampledSmlPolysmFtpt)` is unable to find [UnixPath]: `/Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2/codon_ribodens.tsv` (pattern: `codon_ribodens.tsv`)
+Nov-17 14:30:08.340 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process `generateStatsFigs (subsampledSmlPolysmFtpt)` is unable to find [UnixPath]: `/Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2/codon_ribodens_gathered.tsv` (pattern: `codon_ribodens_gathered.tsv`)
+Nov-17 14:30:08.340 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process `generateStatsFigs (subsampledSmlPolysmFtpt)` is unable to find [UnixPath]: `/Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2/features.pdf` (pattern: `features.pdf`)
+Nov-17 14:30:08.341 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process `generateStatsFigs (subsampledSmlPolysmFtpt)` is unable to find [UnixPath]: `/Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/00/01078a3e268b38fc7013dffa4904e2/sequence_features.tsv` (pattern: `sequence_features.tsv`)
+Nov-17 14:30:08.712 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process generateStatsFigs > Skipping output binding because one or more optional files are missing: fileoutparam<12:1>
+Nov-17 14:30:08.712 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process generateStatsFigs > Skipping output binding because one or more optional files are missing: fileoutparam<13:1>
+Nov-17 14:30:08.712 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process generateStatsFigs > Skipping output binding because one or more optional files are missing: fileoutparam<14:1>
+Nov-17 14:30:08.712 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process generateStatsFigs > Skipping output binding because one or more optional files are missing: fileoutparam<15:1>
+Nov-17 14:30:08.712 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Process generateStatsFigs > Skipping output binding because one or more optional files are missing: fileoutparam<16:1>
+Nov-17 14:30:08.918 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:30:08.919 [Task submitter] INFO  nextflow.Session - [16/7f4758] Submitted process > renameTpms (subsampledSmlPolysmFtpt)
+Nov-17 14:30:08.959 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:30:08.959 [Task submitter] INFO  nextflow.Session - [32/1bebb9] Submitted process > staticHTML (subsampledSmlPolysmFtpt)
+Nov-17 14:30:09.093 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 13; name: renameTpms (subsampledSmlPolysmFtpt); status: COMPLETED; exit: 0; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/16/7f4758cc9b23ee2fcfac81038f36ce]
+Nov-17 14:30:09.115 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:30:09.115 [Task submitter] INFO  nextflow.Session - [39/f92a10] Submitted process > collateTpms (subsampledSmlPolysmFtpt)
+Nov-17 14:30:11.760 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 15; name: collateTpms (subsampledSmlPolysmFtpt); status: COMPLETED; exit: 0; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/39/f92a109b126fc090cac7710c6a814f]
+Nov-17 14:30:11.804 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:30:11.804 [Task submitter] INFO  nextflow.Session - [f6/9b95e6] Submitted process > countReads
+Nov-17 14:30:19.453 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 16; name: countReads; status: COMPLETED; exit: 0; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/f6/9b95e677e2b5564991dac793e3f659]
+Nov-17 14:30:26.825 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 14; name: staticHTML (subsampledSmlPolysmFtpt); status: COMPLETED; exit: 1; error: -; workDir: /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/32/1bebb92132f3a557a3a19276c127be]
+Nov-17 14:30:26.928 [Task monitor] ERROR nextflow.processor.TaskProcessor - Error executing process > 'staticHTML (subsampledSmlPolysmFtpt)'
+
+Caused by:
+  Process `staticHTML (subsampledSmlPolysmFtpt)` terminated with an error exit status (1)
+
+Command executed:
+
+  Rscript -e "rmarkdown::render('/Users/isabelbirds/Documents/Programs/Riboviz/riboviz/rmarkdown/AnalysisOutputs.Rmd',params = list(verbose='FALSE', yamlfile='$PWD/config.yaml', sampleid='subsampledSmlPolysmFtpt', three_nucleotide_periodicity_data_file = '$PWD/3nt_periodicity.tsv', gene_position_length_counts_5start_file = '$PWD/gene_position_length_counts_5start.tsv', read_length_data_file='$PWD/read_lengths.tsv', pos_sp_rpf_norm_reads_data_file='$PWD/pos_sp_rpf_norm_reads.tsv' , gene_read_frames_filtered_data_file='$PWD/3ntframe_bygene_filtered.tsv'), intermediates_dir = '$PWD', output_format = 'html_document', output_file = '$PWD/subsampledSmlPolysmFtpt_output_report.html')"
+
+Command exit status:
+  1
+
+Command output:
+    |..........................................                            |  61%
+    ordinary text without R code
+  
+  
+    |                                                                            
+    |.............................................                         |  64%
+  label: codonribogridbar (with options) 
+  List of 1
+   $ echo: logi FALSE
+  
+  
+    |                                                                            
+    |................................................                      |  68%
+    ordinary text without R code
+  
+  
+    |                                                                            
+    |..................................................                    |  71%
+  label: plot_readlength (with options) 
+  List of 1
+   $ echo: logi FALSE
+  
+  
+    |                                                                            
+    |....................................................                  |  75%
+    ordinary text without R code
+  
+  
+    |                                                                            
+    |.......................................................               |  79%
+  label: plot_positionspecificdistribution (with options) 
+  List of 2
+   $ echo   : logi FALSE
+   $ message: logi FALSE
+  
+  
+    |                                                                            
+    |..........................................................            |  82%
+    ordinary text without R code
+  
+  
+    |                                                                            
+    |............................................................          |  86%
+  label: proportionframe (with options) 
+  List of 3
+   $ echo   : logi FALSE
+   $ message: logi FALSE
+   $ warning: logi FALSE
+  
+
+Command error:
+  ℹ Use `spec()` to retrieve the full column specification for this data.
+  ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+  Rows: 0 Columns: 7
+  ── Column specification ────────────────────────────────────────────────────────
+  Delimiter: "\t"
+  chr (7): gene, Ct_fr0, Ct_fr1, Ct_fr2, pval_fr0vs1, pval_fr0vs2, pval_fr0vsboth
+  
+  ℹ Use `spec()` to retrieve the full column specification for this data.
+  ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+  Quitting from lines 227-235 (AnalysisOutputs.Rmd) 
+  Error: Problem with `mutate()` column `Ct_all`.
+  ℹ `Ct_all = Ct_fr0 + Ct_fr1 + Ct_fr2`.
+  ✖ non-numeric argument to binary operator
+  Backtrace:
+       █
+    1. ├─rmarkdown::render(...)
+    2. │ └─knitr::knit(knit_input, knit_output, envir = envir, quiet = quiet)
+    3. │   └─knitr:::process_file(text, output)
+    4. │     ├─base::withCallingHandlers(...)
+    5. │     ├─knitr:::process_group(group)
+    6. │     └─knitr:::process_group.block(group)
+    7. │       └─knitr:::call_block(x)
+    8. │         └─knitr:::block_exec(params)
+    9. │           └─knitr:::eng_r(options)
+   10. │             ├─knitr:::in_dir(...)
+   11. │             └─knitr:::evaluate(...)
+   12. │               └─evaluate::evaluate(...)
+   13. │                 └─evaluate:::evaluate_call(...)
+   14. │                   ├─evaluate:::timing_fn(...)
+   15. │                   ├─base:::handle(...)
+   16. │                   ├─base::withCallingHandlers(...)
+   17. │                   ├─base::withVisible(eval(expr, envir, enclos))
+   18. │                   └─base::eval(expr, envir, enclos)
+   19. │                     └─base::eval(expr, envir, enclos)
+   20. ├─global::PlotGeneReadFrames(gene_read_frame_data_filtered)
+   21. │ └─global::BoxplotReadFrameProportion(gene_read_frame_data_filtered)
+   22. │   └─`%>%`(...)
+   23. ├─dplyr::mutate(...)
+   24. ├─tidyr::gather(., -feat_names, key = "Frame", value = "Proportion")
+   25. ├─dplyr::select(., c(feat_names, "p_fr0", "p_fr1", "p_fr2"))
+   26. ├─global::CalcReadFrameProportion(.)
+   27. │ └─`%>%`(...)
+   28. ├─dplyr::mutate(...)
+   29. ├─dplyr:::mutate.data.frame(...)
+   30. │ └─dplyr:::mutate_cols(.data, ..., caller_env = caller_env())
+   31. │   ├─base::withCallingHandlers(...)
+   32. │   └─mask$eval_all_mutate(quo)
+   33. └─base::.handleSimpleError(...)
+   34.   └─dplyr:::h(simpleError(msg, call))
+  Execution halted
+
+Work dir:
+  /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/32/1bebb92132f3a557a3a19276c127be
+
+Tip: view the complete command output by changing to the process work dir and entering the command `cat .command.out`
+Nov-17 14:30:26.942 [main] DEBUG nextflow.Session - Session await > all process finished
+Nov-17 14:30:26.942 [Task monitor] DEBUG nextflow.Session - Session aborted -- Cause: Process `staticHTML (subsampledSmlPolysmFtpt)` terminated with an error exit status (1)
+Nov-17 14:30:26.943 [Actor Thread 28] DEBUG nextflow.Nextflow - Ignore exit because execution is already aborted -- message=No sample was visualised successfully
+Nov-17 14:30:27.021 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Nov-17 14:30:27.046 [main] DEBUG nextflow.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=15; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=2h 26m 11s; failedDuration=17.8s; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=4; peakCpus=4; peakMemory=0; ]
+Nov-17 14:30:27.062 [main] DEBUG nextflow.CacheDB - Closing CacheDB done
+Nov-17 14:30:27.106 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

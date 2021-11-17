@@ -1,0 +1,13 @@
+# Created by: RiboViz
+# Date: 2021-11-17 14:30:19.343439
+# Command-line tool: /Users/isabelbirds/Documents/Programs/Riboviz/riboviz/riboviz/tools/count_reads.py
+# File: /Users/isabelbirds/Documents/Programs/Riboviz/riboviz/riboviz/count_reads.py
+# Version: commit 144d95ab228a2da71b9a92912a24b26c37f4a64e date 2021-06-21 09:11:03+01:00
+SampleName	Program	File	NumReads	Description
+subsampledSmlPolysmFtpt	input	/Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/2_Processed_data/Dmel/SRR1548656_subsample.fastq	100000	input
+subsampledSmlPolysmFtpt	cutadapt	/Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/tmp/subsampledSmlPolysmFtpt/trim.fq	98951	Reads after removal of sequencing library adapters
+subsampledSmlPolysmFtpt	hisat2	/Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/tmp/subsampledSmlPolysmFtpt/nonrRNA.fq	22687	rRNA or other contaminating reads removed by alignment to rRNA index files
+subsampledSmlPolysmFtpt	hisat2	/Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/tmp/subsampledSmlPolysmFtpt/rRNA_map.sam	76264	Reads with rRNA and other contaminating reads removed by alignment to rRNA index files
+subsampledSmlPolysmFtpt	hisat2	/Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/tmp/subsampledSmlPolysmFtpt/unaligned.fq	17654	Unaligned reads removed by alignment of remaining reads to ORFs index files
+subsampledSmlPolysmFtpt	hisat2	/Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/tmp/subsampledSmlPolysmFtpt/orf_map.sam	6877	Reads aligned to ORFs index files
+subsampledSmlPolysmFtpt	riboviz.tools.trim_5p_mismatch	/Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/tmp/subsampledSmlPolysmFtpt/orf_map_clean.sam	6877	Reads after trimming of 5' mismatches and removal of those with more than 2 mismatches

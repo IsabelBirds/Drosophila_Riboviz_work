@@ -1,0 +1,5 @@
+# Created by: RiboViz
+# Date: 2021-11-17 14:24:29
+# File: /Users/isabelbirds/Documents/Programs/Riboviz/riboviz/rscripts/generate_stats_figs.R
+# Version: commit 144d95ab228a2da71b9a92912a24b26c37f4a64e date 2021-06-21 08:11:03 GMT
+gene	Ct_fr0	Ct_fr1	Ct_fr2	pval_fr0vs1	pval_fr0vs2	pval_fr0vsboth

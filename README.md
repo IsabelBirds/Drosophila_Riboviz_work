@@ -5,12 +5,13 @@
 (Not uploaded)
 
 From Flybase:
-- Dmel GFF 6.35
-- Dmel genome fasta 6.35
-- tRNA fasta 6.35
+- [Dmel all GFF 6.35](http://ftp.flybase.net/releases/FB2020_04/dmel_r6.35/gff/)
+- [Dmel all GTF 6.35](http://ftp.flybase.net/releases/FB2020_04/dmel_r6.35/gtf/)
+- [Dmel genome fasta 6.35](http://ftp.flybase.net/releases/FB2020_04/dmel_r6.35/fasta/)
+- [tRNA fasta 6.35](http://ftp.flybase.net/releases/FB2020_04/dmel_r6.35/fasta/)
 
 From Ribogalaxy:
-- rRNA fasta
+- [rRNA fasta](https://ribogalaxy.ucc.ie/library/index)
 
 Sequencing data: 
 - [Small polysome footprints RPF sample](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM1477470)
@@ -30,6 +31,7 @@ Sequencing data:
 ## Riboviz test
 
 Test running converted filtered fasta and gff on Riboviz.
+Includes params file, output from checks, etc.
 
 Check gff: ```python -m riboviz.tools.check_fasta_gff -f /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/2_Processed_data/Dmel/Dmel_filtered.fasta -g /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/2_Processed_data/Dmel/Dmel_filtered.gff3 -o /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/Dmel_filtered.issues.tsv --use-feature-name -v```
 

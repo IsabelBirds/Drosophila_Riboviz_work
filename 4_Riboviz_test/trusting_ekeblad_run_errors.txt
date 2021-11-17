@@ -1,0 +1,146 @@
+Programs/Riboviz/riboviz/prep_riboviz.nf -ansi-log false -params-file Aspden_2014_RPF_config.yaml
+N E X T F L O W  ~  version 21.04.1
+Launching `/Users/isabelbirds/Documents/Programs/Riboviz/riboviz/prep_riboviz.nf` [trusting_ekeblad] - revision: 6c6670470d
+samples_dir: .
+organisms_dir: .
+data_dir: .
+[2e/f51f41] Submitted process > buildIndicesORF (Dmel_filtered)
+[4b/4670ff] Submitted process > buildIndicesrRNA (Drosophila_melanogaster_fly_rRNA_tRNA)
+[81/adae7c] Submitted process > cutAdapters (subsampledSmlPolysmFtpt)
+[80/96fa5b] Submitted process > createVizParamsConfigFile
+[68/881758] Submitted process > hisat2rRNA (subsampledSmlPolysmFtpt)
+[9e/4ac9cd] Submitted process > hisat2ORF (subsampledSmlPolysmFtpt)
+[e3/f3c4ae] Submitted process > trim5pMismatches (subsampledSmlPolysmFtpt)
+[6b/220c57] Submitted process > samViewSort (subsampledSmlPolysmFtpt)
+[31/e29db2] Submitted process > outputBams (subsampledSmlPolysmFtpt)
+[46/1e4165] Submitted process > makeBedgraphs (subsampledSmlPolysmFtpt)
+[f5/2a0d21] Submitted process > bamToH5 (subsampledSmlPolysmFtpt)
+[00/01078a] Submitted process > generateStatsFigs (subsampledSmlPolysmFtpt)
+Finished processing sample: subsampledSmlPolysmFtpt
+[16/7f4758] Submitted process > renameTpms (subsampledSmlPolysmFtpt)
+[32/1bebb9] Submitted process > staticHTML (subsampledSmlPolysmFtpt)
+[39/f92a10] Submitted process > collateTpms (subsampledSmlPolysmFtpt)
+[f6/9b95e6] Submitted process > countReads
+Error executing process > 'staticHTML (subsampledSmlPolysmFtpt)'
+
+Caused by:
+  Process `staticHTML (subsampledSmlPolysmFtpt)` terminated with an error exit status (1)
+
+Command executed:
+
+  Rscript -e "rmarkdown::render('/Users/isabelbirds/Documents/Programs/Riboviz/riboviz/rmarkdown/AnalysisOutputs.Rmd',params = list(verbose='FALSE', yamlfile='$PWD/config.yaml', sampleid='subsampledSmlPolysmFtpt', three_nucleotide_periodicity_data_file = '$PWD/3nt_periodicity.tsv', gene_position_length_counts_5start_file = '$PWD/gene_position_length_counts_5start.tsv', read_length_data_file='$PWD/read_lengths.tsv', pos_sp_rpf_norm_reads_data_file='$PWD/pos_sp_rpf_norm_reads.tsv' , gene_read_frames_filtered_data_file='$PWD/3ntframe_bygene_filtered.tsv'), intermediates_dir = '$PWD', output_format = 'html_document', output_file = '$PWD/subsampledSmlPolysmFtpt_output_report.html')"
+
+Command exit status:
+  1
+
+Command output:
+    |..........................................                            |  61%
+    ordinary text without R code
+  
+  
+    |                                                                            
+    |.............................................                         |  64%
+  label: codonribogridbar (with options) 
+  List of 1
+   $ echo: logi FALSE
+  
+  
+    |                                                                            
+    |................................................                      |  68%
+    ordinary text without R code
+  
+  
+    |                                                                            
+    |..................................................                    |  71%
+  label: plot_readlength (with options) 
+  List of 1
+   $ echo: logi FALSE
+  
+  
+    |                                                                            
+    |....................................................                  |  75%
+    ordinary text without R code
+  
+  
+    |                                                                            
+    |.......................................................               |  79%
+  label: plot_positionspecificdistribution (with options) 
+  List of 2
+   $ echo   : logi FALSE
+   $ message: logi FALSE
+  
+  
+    |                                                                            
+    |..........................................................            |  82%
+    ordinary text without R code
+  
+  
+    |                                                                            
+    |............................................................          |  86%
+  label: proportionframe (with options) 
+  List of 3
+   $ echo   : logi FALSE
+   $ message: logi FALSE
+   $ warning: logi FALSE
+  
+
+Command error:
+  ℹ Use `spec()` to retrieve the full column specification for this data.
+  ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+  Rows: 0 Columns: 7
+  ── Column specification ────────────────────────────────────────────────────────
+  Delimiter: "\t"
+  chr (7): gene, Ct_fr0, Ct_fr1, Ct_fr2, pval_fr0vs1, pval_fr0vs2, pval_fr0vsboth
+  
+  ℹ Use `spec()` to retrieve the full column specification for this data.
+  ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+  Quitting from lines 227-235 (AnalysisOutputs.Rmd) 
+  Error: Problem with `mutate()` column `Ct_all`.
+  ℹ `Ct_all = Ct_fr0 + Ct_fr1 + Ct_fr2`.
+  ✖ non-numeric argument to binary operator
+  Backtrace:
+       █
+    1. ├─rmarkdown::render(...)
+    2. │ └─knitr::knit(knit_input, knit_output, envir = envir, quiet = quiet)
+    3. │   └─knitr:::process_file(text, output)
+    4. │     ├─base::withCallingHandlers(...)
+    5. │     ├─knitr:::process_group(group)
+    6. │     └─knitr:::process_group.block(group)
+    7. │       └─knitr:::call_block(x)
+    8. │         └─knitr:::block_exec(params)
+    9. │           └─knitr:::eng_r(options)
+   10. │             ├─knitr:::in_dir(...)
+   11. │             └─knitr:::evaluate(...)
+   12. │               └─evaluate::evaluate(...)
+   13. │                 └─evaluate:::evaluate_call(...)
+   14. │                   ├─evaluate:::timing_fn(...)
+   15. │                   ├─base:::handle(...)
+   16. │                   ├─base::withCallingHandlers(...)
+   17. │                   ├─base::withVisible(eval(expr, envir, enclos))
+   18. │                   └─base::eval(expr, envir, enclos)
+   19. │                     └─base::eval(expr, envir, enclos)
+   20. ├─global::PlotGeneReadFrames(gene_read_frame_data_filtered)
+   21. │ └─global::BoxplotReadFrameProportion(gene_read_frame_data_filtered)
+   22. │   └─`%>%`(...)
+   23. ├─dplyr::mutate(...)
+   24. ├─tidyr::gather(., -feat_names, key = "Frame", value = "Proportion")
+   25. ├─dplyr::select(., c(feat_names, "p_fr0", "p_fr1", "p_fr2"))
+   26. ├─global::CalcReadFrameProportion(.)
+   27. │ └─`%>%`(...)
+   28. ├─dplyr::mutate(...)
+   29. ├─dplyr:::mutate.data.frame(...)
+   30. │ └─dplyr:::mutate_cols(.data, ..., caller_env = caller_env())
+   31. │   ├─base::withCallingHandlers(...)
+   32. │   └─mask$eval_all_mutate(quo)
+   33. └─base::.handleSimpleError(...)
+   34.   └─dplyr:::h(simpleError(msg, call))
+  Execution halted
+
+Work dir:
+  /Users/isabelbirds/Documents/GitHub/Drosophila_Riboviz_work/4_Riboviz_test/work/32/1bebb92132f3a557a3a19276c127be
+
+Tip: view the complete command output by changing to the process work dir and entering the command `cat .command.out`
+
+
+Finished visualising sample: null
+Workflow finished! (failed)

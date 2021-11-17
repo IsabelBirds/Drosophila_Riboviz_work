@@ -43,9 +43,11 @@ vignettes/*.pdf
 1_Raw_data/Sequencing/*fastq
 2_Processed_data/Dmel/*fastq
 2_Processed_data/tmp_files/
-4_Riboviz_test/*
-!4_Riboviz_test/*yaml
-!4_Riboviz_test/*txt
-!4_Riboviz_test/*tsv
+4_Riboviz_test/index
+4_Riboviz_test/tmp
+4_Riboviz_test/work
+4_Riboviz_test/.nextflow
+4_Riboviz_test/output/subsampledSmlPolysmFtpt/*h5
+4_Riboviz_test/output/subsampledSmlPolysmFtpt/*bam*
 .Rproj.user
 
